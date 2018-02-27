@@ -1,21 +1,33 @@
-<h1> Authentication Sample </h1>
+<body>
+<h1> Bienvenido de vuelta a Bremen.io </h1>
 <div *ngIf="!session.getUser()">
   <form>
-    <h2> Login or Signup </h2>
-    <label> Username </label>
-    <input type="text" [(ngModel)]="username" name="username"/>
+    <label> Usuario </label>
+    <input class="validate[required,custom[onlyLetter],length[6,100]] feedback-input" id="name" type="text" [(ngModel)]="username" #newUser="ngModel" name="username" required minlength="6"/>
+    <div *ngIf="newUser.errors && (newUser.dirty || newUser.touched)">
+        <p class="error" [hidden]="!newUser.errors.minlength">
+          <small>El nombre de usuario debe tener un mínimo de 6 caracteres.</small>
+        </p>
+      </div>
     <br>
-    <label> Password </label>
+
+    <label> Contraseña </label>
     <input type="password" [(ngModel)]="password" name="password"/>
     <div>
-      <button (click)="login()"> login </button>
-      <button (click)="signup()"> signup </button>
+      <button (click)="login()"> Entrar </button>
     </div>
+
+    <div>
+      <p>¿No estás registrado?</p>
+      <button (click)="signup()"> Registrarme </button>
+    </div>
+
   </form>
   <p *ngIf="error" class="error"> {{ error }} </p>
 </div>
 
 <div *ngIf="session.getUser()">
   <pre> {{ session.getUser() | json }} </pre>
-  <button (click)="logout()"> Logout </button>
+  <button (click)="logout()"> Cerrar sesión </button>
 </div>
+</body>

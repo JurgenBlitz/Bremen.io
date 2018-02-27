@@ -8,9 +8,9 @@ const userSchema = new Schema({
     username: {type: String, required: true }, 
     password: String,
     email: String,
-    city: {type: String, enum: City, required: true},
+    city: {type: String, /*enum: City, required: true*/},
     description: String,
-    mainInstrument: { type: String, enum: Instrument, required: true }, 
+    mainInstrument: { type: String, /*enum: Instrument, required: true*/ }, 
     otherInstrument: { type: String, enum: Instrument}, 
     experience: { type: String, enum: Experience},
     imgUrl: { type: String, default: "https://pbs.twimg.com/profile_images/889232092441214978/beVAb2-k_400x400.jpg" }

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const City = require('../models/CitiesEnum')
 const bcrypt = require('bcrypt');
 const debug = require('debug')("server:auth");
 const passport = require('passport')
@@ -13,8 +14,9 @@ let loginPromise = (req, user) => {
 
 /* SIGNUP */
 router.post('/signup', (req, res, next) => {
-  const {username,password} = req.body;
-  if (!username || !password) return res.status(400).json({ message: 'Provide username and password' })
+  const {username,password, city} = req.body;
+  if (!username || !password) return res.status(400).json({ message: 'Provide username and password' });
+  if (!city) return res.status(400).json({ message: 'Provide a city' })
   User.findOne({ username }, '_id')
     .then(foundUser =>{
       if (foundUser) return res.status(400).json({ message: 'The username already exists' });
@@ -22,7 +24,8 @@ router.post('/signup', (req, res, next) => {
       const hashPass = bcrypt.hashSync(password, salt);
       const theUser = new User({
         username,
-        password: hashPass
+        password: hashPass,
+        city
       });
       return theUser.save()
           .then(user => loginPromise(req,user))
