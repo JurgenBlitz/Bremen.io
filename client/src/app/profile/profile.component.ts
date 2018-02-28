@@ -8,11 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  username: string;
-  password: string;
-  error: string;
-  
-  constructor (public session: SessionService, private router: Router) { }
+
+  user:Array<any>
+  error:string;
+  constructor (public session: SessionService, private router: Router) {
+
+   }
 
   ngOnInit() {
   }
@@ -22,6 +23,6 @@ export class ProfileComponent implements OnInit {
       .logout()
       .catch(e => (this.error = e))
       .subscribe();
-      this.router.navigate(["/profile"]);
+      this.router.navigate(["/signup"]);
   }
 }

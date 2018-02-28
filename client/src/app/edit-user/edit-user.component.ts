@@ -12,6 +12,10 @@ export class EditUserComponent implements OnInit {
   username: string;
   password: string;
   error: string;
+  instrument = ["Acordeón", "Armónica", "Bajo", "Batería", "Canto", "Clarinete", "Contrabajo", "DJ",	
+  "Flauta", "Gaita", "Guitarra", "Kazoo", "Oboe", "Percusión", "Teclado", "Piano", "Saxo", "Sintetizador",
+  "Teclado", "Trombón", "Trompeta", "Tuba", "Ukelele", "Viola", "Violín", "Violonchelo", "Otros"];
+  exp = [ "Principiante", "Intermedio", "Avanzado", "Profesional"];
   
   constructor (public session: SessionService, private router: Router) { }
 

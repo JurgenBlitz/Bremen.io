@@ -21,20 +21,19 @@
         <div class="form-group">
           <label for="name-surname"><strong>Tu alias</strong>*</label>
           <p>Por este nombre te conocerán los demás usuarios de la red.</p>
-          <input type="text" name="username" class="form-control" value="<%=  user.username %>">
+          <input type="text" name="username" class="form-control" [(ngModel)]="username">
         </div>
 
         <br>
         <div class="form-group">
             <label for="city"><strong>Ciudad</strong>*</label>
             <p>¿Dónde vives?</p>
-            <select name="city" id="yourcity">
-                <option type="text" value="<%= user.city %>" class="form-control" selected><%= user.city %></option>
-              <!-- <% city.forEach((city) => { %>
-                <option type="text" value="<%= city %>" class="form-control"> <%= city %></option>
-                <%  }) %> -->
+            <label> Ciudad </label>
+            <select class="form-control" id="city" [(ngModel)]="city" name='city'>
+              <option *ngFor="let c of city" [value]="c">{{c}}</option>
             </select>
           </div>
+
         <br>
         <div class="form-group">
           <label for="name-surname"><strong>Descripción</strong></label>
@@ -42,29 +41,24 @@
             curiosidades...</p>
           <input type="text" name="description" class="form-control">
         </div>
+        
         <br>
         <div class="form-group">
           <label for="main-instr"><strong>Instrumento principal</strong>*</label>
           <br>
           <p>Selecciona el instrumento con el que mejor te defiendas. Puedes añadir otros instrumentos después.</p>
-          <select name="mainInstrument" id="instrument">
-              <option type="text" value="<%= user.mainInstrument %>" class="form-control" selected><%= user.mainInstrument %></option>
-            <!-- <% mainInstrumentList.forEach((instrument) => { %>
-              <option type="text" value="<%= instrument %>" class="form-control"><%= instrument %></option>
-              <%  }) %> -->
-          </select>
+              <select class="form-control" id="instrument" required>
+                  <option *ngFor="let in of instrument" [value]="in">{{in}}</option>
+                </select>
         </div>
+
         <br>
         <div class="form-group">
           <label for="experience"><strong>Experiencia</strong></label>
           <br>
           <p>Indica a otros usuarios el nivel que tienes en tu instrumento principal.</p>
-          <select name="experience" id="level">
-            <!-- <% experience.forEach((experience) => { %>
-              <option type="text" value="<%= experience %>" class="form-control">
-                <%= experience %>
-              </option>
-              <%  }) %> -->
+          <select name="experience" id="level" required>
+              <option *ngFor="let e of exp" [value]="e">{{e}}</option>
           </select>
         </div>
         <br>
@@ -73,17 +67,15 @@
           <br>
           <p>¿Hay otro instrumento que toques? Inclúyelo aquí.</p>
           <select name="otherInstrument" id="oth-instrument">
-            <!-- <% mainInstrumentList.forEach((mainInstrument) => { %>
-              <option type="text" value="<%= mainInstrument %>" class="form-control">
-                <%= mainInstrument %>
-              </option>
-              <%  }) %> -->
+              <select class="form-control" id="instrument" required>
+                  <option *ngFor="let in of instrument" [value]="in">{{in}}</option>
+                </select>
           </select>
         </div>
         <br>
       </div>
         <div class="form-group">
-          <button type="submit">Crear perfil</button>
+          <button type="save()">Crear perfil</button>
         </div>
       </form>
     </div>

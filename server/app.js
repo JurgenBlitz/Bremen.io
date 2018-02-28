@@ -57,7 +57,8 @@ const User = require('./models/User')
 const Ad = require('./models/Ad')
 
 console.log(User.modelName);
-console.log(Ad.modelName)
+console.log(Ad.modelName);
+app.use('/api/auth', auth);
 app.use('/api/Ad/', generateCrud(Ad));
 app.use('/api/user/', generateCrud(User));
 
