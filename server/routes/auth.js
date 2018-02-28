@@ -15,11 +15,11 @@ let loginPromise = (req, user) => {
 /* SIGNUP */
 router.post('/signup', (req, res, next) => {
   const {username,password, city} = req.body;
-  if (!username || !password) return res.status(400).json({ message: 'Provide username and password' });
-  if (!city) return res.status(400).json({ message: 'Provide a city' })
+  if (!username || !password) return res.status(400).json({ message: 'Indica un nombre de usuario y contraseña' });
+  if (!city) return res.status(400).json({ message: 'Indica una ciudad' })
   User.findOne({ username }, '_id')
     .then(foundUser =>{
-      if (foundUser) return res.status(400).json({ message: 'The username already exists' });
+      if (foundUser) return res.status(400).json({ message: 'Yas existe un usuario con ese nombre' });
       const salt = bcrypt.genSaltSync(10);
       const hashPass = bcrypt.hashSync(password, salt);
       const theUser = new User({
@@ -30,7 +30,7 @@ router.post('/signup', (req, res, next) => {
       return theUser.save()
           .then(user => loginPromise(req,user))
           .then(user => {
-            debug(`Registered user ${user._id}. Welcome ${user.username}`);
+            debug(`Registered user ${user._id}. Bienvenido, ${user.username}`);
             res.status(200).json(req.user)
           }) 
     })
@@ -43,11 +43,11 @@ router.post('/signup', (req, res, next) => {
 /* LOGIN */
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, theUser, failureDetails) => {
-    if (err) return res.status(500).json({ message: 'Something went wrong' });
+    if (err) return res.status(500).json({ message: 'Hemos tenido un error' });
     if (!theUser) return res.status(401).json(failureDetails);
     loginPromise(req,theUser)
       .then(() => res.status(200).json(req.user))
-      .catch(e => res.status(500).json({ message: 'Something went wrong' }));
+      .catch(e => res.status(500).json({ message: 'Hemos tenido un error' }));
   })(req, res, next);
 });
 

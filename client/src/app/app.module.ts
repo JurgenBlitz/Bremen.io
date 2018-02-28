@@ -7,6 +7,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { MessageComponent } from './message/message.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 import { RouterModule } from '@angular/router'
 import { routes } from '../routes';
@@ -22,7 +23,8 @@ import { MessageService } from '../services/message.service';
     LoginFormComponent,
     MessageComponent,
     SignupFormComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

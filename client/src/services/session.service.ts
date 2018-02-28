@@ -16,7 +16,7 @@ export class SessionService {
   BASEURL:string = "http://localhost:3000"
   options:object = {withCredentials:true};
   constructor(private http: Http) {
-    this.isLoggedIn().subscribe();
+    // this.isLoggedIn().subscribe();
   }
 
   private user:User;
@@ -30,7 +30,7 @@ export class SessionService {
         this.user = user;
         console.log(`Setting user, welcome ${this.user.username}`)
       }else{
-        console.log(`bye bye ${this.user.username}`)
+        console.log(`Hasta pronto ${this.user.username}`)
         this.user = null
       }
       return user;

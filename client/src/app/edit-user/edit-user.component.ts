@@ -3,11 +3,12 @@ import { SessionService } from '../../services/session.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-edit-user',
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class EditUserComponent implements OnInit {
+
   username: string;
   password: string;
   error: string;
@@ -17,11 +18,4 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout() {
-    this.session
-      .logout()
-      .catch(e => (this.error = e))
-      .subscribe();
-      this.router.navigate(["/profile"]);
-  }
 }

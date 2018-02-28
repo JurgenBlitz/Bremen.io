@@ -22,7 +22,13 @@ export class SignupFormComponent implements OnInit {
       .signup(this.username, this.password, this.city)
       .subscribe(data => {
         console.log(data);
-        this.router.navigate(["/profile"]);
+        this.router.navigate(["/edit-user"]);
       }, err => (this.error = err));
+  }
+
+  logout(){
+    this.session.logout()
+    .catch(e => this.error = e)
+    .subscribe();
   }
 }

@@ -3,33 +3,34 @@ import { SessionService } from '../../services/session.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+  selector: "app-login-form",
+  templateUrl: "./login-form.component.html",
+  styleUrls: ["./login-form.component.css"]
 })
 export class LoginFormComponent implements OnInit {
+  username: string;
+  password: string;
+  error: string;
+  constructor(public session: SessionService, private router: Router) {}
 
-  username:string;
-  password:string;
-  error:string;
-  constructor(public session:SessionService, private router: Router) { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  login() {
+    this.session.login(this.username, this.password).subscribe(data => {
+      console.log(data);
+      this.router.navigate(["/profile"]);
+    }, err => (this.error = err));
   }
 
-  login(){
+  logout() {
     this.session
-      .login(this.username, this.password)
-      .subscribe(data => {
-        console.log(data);
-        this.router.navigate(["/profile"]);
-      }, err => (this.error = err));
+      .logout()
+      .catch(e => (this.error = e))
+      .subscribe();
   }
 
-  logout(){
-    this.session.logout()
-    .catch(e => this.error = e)
-    .subscribe();
+  signup (){
+    this.router.navigate(["/signup"]);
   }
 
 }

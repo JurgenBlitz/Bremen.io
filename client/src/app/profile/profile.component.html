@@ -1,3 +1,10 @@
+<div class="profile">
+<h2>Tu perfil</h2>
 <p>
   profile works!
 </p>
+<div  *ngIf="session.getUser()">
+  <pre> {{ session.getUser() | json }} </pre>
+  <button (click)="logout()"> Cerrar sesión </button>
+</div>
+</div>
