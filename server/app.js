@@ -11,6 +11,7 @@ const {dbURL} = require('./config');
 const cors = require('cors');
 const auth = require('./routes/auth');
 const generateCrud = require('./routes/crud');
+const userRoutes = require('./routes/users');
 
 const app = express();
 
@@ -59,8 +60,8 @@ const Ad = require('./models/Ad')
 console.log(User.modelName);
 console.log(Ad.modelName);
 app.use('/api/auth', auth);
-app.use('/api/Ad/', generateCrud(Ad));
-app.use('/api/user/', generateCrud(User));
+// app.use('/api/Ad/', generateCrud(Ad));
+app.use('/api/users', userRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

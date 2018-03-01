@@ -16,6 +16,8 @@ import { routes } from '../routes';
 
 import { SessionService } from '../services/session.service';
 import { MessageService } from '../services/message.service';
+import { UserService } from '../services/user.service';
+import { AdsService } from '../services/ads.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,7 @@ import { MessageService } from '../services/message.service';
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [SessionService, MessageService],
+  providers: [SessionService, MessageService, UserService, AdsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

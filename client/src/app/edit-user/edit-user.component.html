@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
 
-    <!-- <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm"> -->
-    <form action="/users/new-user" method="POST">
-      <div>
-        <h4>¡Bienvenido a Bremen.io! Ahora que ya estás registrado, vamos a completar tu perfil. Recuerda que aunque no todos
+    <form (ngSubmit)="save(myForm)" #myForm="ngForm">
+      <div class="intro">
+        <p>¡Bienvenido a Bremen.io! Ahora que ya estás registrado, vamos a completar tu perfil. Recuerda que aunque no todos
           los campos son obligatorios, cuanta más información puedas ofrecer, mejor será la idea que se puedan hacer otros
-          usuarios de ti como músico</h4>
+          usuarios de ti como músico. Puedes saltarte casi todos los campos, pero sólo necesitaremos rellenar este formulario una vez.<br>
+          <br>¡Recuerda que los campos marcados con un asterisco son obligatorios!</p>
       </div>
 
       <div class="parent-box">
@@ -15,28 +15,24 @@
         </div>
 
         <div class="form-group">
-          <label for="imgUrl">
-            <strong>Avatar</strong>
-          </label>
-          <img src="https://pbs.twimg.com/profile_images/889232092441214978/beVAb2-k_400x400.jpg" height="150px" width="150px">
+          <img class="avatar" src="http://style.anu.edu.au/_anu/4/images/placeholders/person.png" height="150px" width="150px">
           <p>Inserta aquí tu imagen de perfil. Puedes cambiarla cuando quieras desde las opciones de edición de perfil.</p>
-          <input type="file" name="image" class="form-control">
+          <input type="file" name="image" class="inputs">
         </div>
 
         <br>
         <div class="form-group">
           <label for="username"><strong>Tu alias</strong>*</label>
           <p>Por este nombre te conocerán los demás usuarios de la red.</p>
-          <input type="text" name="username" [(ngModel)]="username" minlength="6" />
+          <input type="text" name="username" [(ngModel)]="username" minlength="6" class="inputs" placeholder="Elige tu nombre de usuario"/>
         </div>
 
         <br>
         <div class="form-group">
           <label for="city"><strong>Ciudad</strong>*</label>
           <p>¿Dónde vives?</p>
-          <label> Ciudad </label>
-          <select class="form-control" id="city" [(ngModel)]="city" name='city'>
-            <option *ngFor="let c of city" [value]="c">{{c}}</option>
+          <select class="form-control" id="city" [ngModel]="city" name='city' class="inputs"  >
+            <option *ngFor="let c of city" value="{{c}}">{{c}}</option>
           </select>
         </div>
 
@@ -46,7 +42,7 @@
           <p>Aquí tienes la opción de incluir un breve resumen sobre tu trayectoria musical, tus expectativas o proyección,
             curiosidades...
           </p>
-          <input type="text" name="description" [(ngModel)]="description" maxlength="200" />
+          <input type="text" name="description" [(ngModel)]="description" id="description " maxlength="200" class="info-input" placeholder="Cuenta algo sobre ti"/>
         </div>
 
         <br>
@@ -54,23 +50,10 @@
           <label for="mainInstrument"><strong>Instrumento principal</strong>*</label>
           <br>
           <p>Selecciona el instrumento con el que mejor te defiendas. Puedes añadir otros instrumentos después.</p>
-          <select class="form-control" id="instrument" required>
-            <option *ngFor="let in of instrument" [value]="in">{{in}}</option>
+          <select class="form-control" id="instrument" [ngModel]="instrument" name='instrument' required class="inputs">
+            <option *ngFor="let in of instrument" value="{{in}}">{{in}}</option>
           </select>
         </div>
-
-
-        <!-- <div class="form-group">
-            <label for="power">Hero Power</label>
-            <select class="form-control"  id="power"
-                    required
-                    [(ngModel)]="model.power" name="power">
-              <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
-            </select>
-          </div> -->
-
-
-
 
 
         <br>
@@ -80,8 +63,8 @@
           </label>
           <br>
           <p>Indica a otros usuarios el nivel que tienes en tu instrumento principal.</p>
-          <select name="experience" id="level" required>
-            <option *ngFor="let e of exp" [value]="e">{{e}}</option>
+          <select name="experience" id="level" [ngModel]="experience" required class="inputs">
+            <option *ngFor="let e of exp" value="{{e}}">{{e}}</option>
           </select>
         </div>
         <br>
@@ -92,11 +75,11 @@
           </label>
           <br>
           <p>¿Hay otros instrumentos que toques? Inclúyelos aquí.</p>
-          <input type="text" name="otherInstrument" [(ngModel)]="otherInstrument" />
+          <input type="text" name="otherInstrument" [(ngModel)]="otherInstrument" class="inputs"/>
         </div>
 
       </div>
-      <button type="submit">Crear perfil</button>
+      <button>Crear perfil</button>
     </form>
   </div>
 </div>

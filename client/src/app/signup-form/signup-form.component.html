@@ -3,23 +3,23 @@
 
         <div class="registry">
           <div class="boxes">
-          <label> Usuario: </label>
-          <input class="validate[required,custom[onlyLetter],length[6,100]] feedback-input" id="name" type="text" [(ngModel)]="username"
-            #newUser="ngModel" name="username" required minlength="6" />
- 
-          <label> Contraseña: </label>
-          <input type="password" class="form-control" [(ngModel)]="password" name="password" />
-        </div>
-
+            <label> Usuario: </label>
+            <input class="validate[required,custom[onlyLetter],length[6,100]] feedback-input" id="name" type="text" [(ngModel)]="username"
+              #newUser="ngModel" name="username" required minlength="6" />
+        
+            <label> Contraseña: </label>
+            <input type="password" class="form-control" [(ngModel)]="password" name="password" />
+          </div>
+        
           <div class="butt">
             <button class="signmeup" (click)="signup()"> Registrarme </button>
           </div>
         </div>
-      </form>
-          
-            <p>¿Ya estás registrado?</p>
-            <button routerLink="/login">Entrar</button>
-
+        </form>
+        <div class="login">
+          <p>¿Ya estás registrado?</p>
+          <button routerLink="/login">Entrar</button>
+        </div>
         <!-- <p *ngIf="error" class="error"> {{ error }} </p> -->
         
         

@@ -7,7 +7,7 @@ import { EditUserComponent } from './app/edit-user/edit-user.component';
 export const routes: Routes = [
     { path: 'signup', component: SignupFormComponent },
     { path: 'login', component: LoginFormComponent },
-    { path: 'profile', component: ProfileComponent},
-    { path: 'edit-user', component: EditUserComponent}
+    { path: 'profile/:id', component: ProfileComponent},
+    { path: 'edit-user/:id', component: EditUserComponent}
 
 ];
