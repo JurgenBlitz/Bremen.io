@@ -8,14 +8,14 @@ import { MessageComponent } from './message/message.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { CreateAdComponent } from './create-ad/create-ad.component';
+import { AdListComponent } from './ad-list/ad-list.component';
 
 import { RouterModule } from '@angular/router'
 import { routes } from '../routes';
 
 import { SessionService } from '../services/session.service';
 import { MessageService } from '../services/message.service';
-
-
 
 @NgModule({
   declarations: [
@@ -24,7 +24,9 @@ import { MessageService } from '../services/message.service';
     MessageComponent,
     SignupFormComponent,
     ProfileComponent,
-    EditUserComponent
+    EditUserComponent,
+    CreateAdComponent,
+    AdListComponent
   ],
   imports: [
     BrowserModule,

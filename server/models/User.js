@@ -11,8 +11,8 @@ const userSchema = new Schema({
     city: {type: String, enum: City},
     description: String,
     mainInstrument: { type: String, enum: Instrument}, 
-    otherInstrument: { type: String, enum: Instrument}, 
     experience: { type: String, enum: Experience},
+    otherInstrument: { type: String}, 
     imgUrl: { type: String, default: "https://pbs.twimg.com/profile_images/889232092441214978/beVAb2-k_400x400.jpg" }
 },{
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }

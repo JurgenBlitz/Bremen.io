@@ -1,82 +1,102 @@
 <div class="container">
   <div class="row">
-      <form action="/users/new-user" method="POST">
-        <div>
-          <h4>¡Bienvenido a Bremen.io! Ahora que ya estás registrado, vamos a completar tu perfil.  Recuerda que aunque no todos los campos son obligatorios, cuanta más información puedas ofrecer, mejor será la idea que se puedan hacer otros usuarios de ti como músico</h4>
+
+    <!-- <form (ngSubmit)="submitForm(myForm)" #myForm="ngForm"> -->
+    <form action="/users/new-user" method="POST">
+      <div>
+        <h4>¡Bienvenido a Bremen.io! Ahora que ya estás registrado, vamos a completar tu perfil. Recuerda que aunque no todos
+          los campos son obligatorios, cuanta más información puedas ofrecer, mejor será la idea que se puedan hacer otros
+          usuarios de ti como músico</h4>
+      </div>
+
+      <div class="parent-box">
+        <div class="form-group">
+          <h2>Crea tu perfil</h2>
         </div>
 
-        <div class="parent-box">
         <div class="form-group">
-          <label for="title"><h2>Crea tu perfil</h2></label>
-        </div>
-        <br>
-        <div class="form-group">
-          <label for="profile-picture"><strong>Avatar</strong></label>
+          <label for="imgUrl">
+            <strong>Avatar</strong>
+          </label>
           <img src="https://pbs.twimg.com/profile_images/889232092441214978/beVAb2-k_400x400.jpg" height="150px" width="150px">
           <p>Inserta aquí tu imagen de perfil. Puedes cambiarla cuando quieras desde las opciones de edición de perfil.</p>
-          <input type="file" name="image" class="form-control"> 
+          <input type="file" name="image" class="form-control">
         </div>
 
         <br>
         <div class="form-group">
-          <label for="name-surname"><strong>Tu alias</strong>*</label>
+          <label for="username"><strong>Tu alias</strong>*</label>
           <p>Por este nombre te conocerán los demás usuarios de la red.</p>
-          <input type="text" name="username" class="form-control" [(ngModel)]="username">
+          <input type="text" name="username" [(ngModel)]="username" minlength="6" />
         </div>
 
         <br>
         <div class="form-group">
-            <label for="city"><strong>Ciudad</strong>*</label>
-            <p>¿Dónde vives?</p>
-            <label> Ciudad </label>
-            <select class="form-control" id="city" [(ngModel)]="city" name='city'>
-              <option *ngFor="let c of city" [value]="c">{{c}}</option>
-            </select>
-          </div>
+          <label for="city"><strong>Ciudad</strong>*</label>
+          <p>¿Dónde vives?</p>
+          <label> Ciudad </label>
+          <select class="form-control" id="city" [(ngModel)]="city" name='city'>
+            <option *ngFor="let c of city" [value]="c">{{c}}</option>
+          </select>
+        </div>
 
         <br>
         <div class="form-group">
-          <label for="name-surname"><strong>Descripción</strong></label>
+          <label for="description"><strong>Descripción</strong></label>
           <p>Aquí tienes la opción de incluir un breve resumen sobre tu trayectoria musical, tus expectativas o proyección,
-            curiosidades...</p>
-          <input type="text" name="description" class="form-control">
+            curiosidades...
+          </p>
+          <input type="text" name="description" [(ngModel)]="description" maxlength="200" />
         </div>
-        
+
         <br>
         <div class="form-group">
-          <label for="main-instr"><strong>Instrumento principal</strong>*</label>
+          <label for="mainInstrument"><strong>Instrumento principal</strong>*</label>
           <br>
           <p>Selecciona el instrumento con el que mejor te defiendas. Puedes añadir otros instrumentos después.</p>
-              <select class="form-control" id="instrument" required>
-                  <option *ngFor="let in of instrument" [value]="in">{{in}}</option>
-                </select>
+          <select class="form-control" id="instrument" required>
+            <option *ngFor="let in of instrument" [value]="in">{{in}}</option>
+          </select>
         </div>
+
+
+        <!-- <div class="form-group">
+            <label for="power">Hero Power</label>
+            <select class="form-control"  id="power"
+                    required
+                    [(ngModel)]="model.power" name="power">
+              <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+            </select>
+          </div> -->
+
+
+
+
 
         <br>
         <div class="form-group">
-          <label for="experience"><strong>Experiencia</strong></label>
+          <label for="experience">
+            <strong>Experiencia</strong>
+          </label>
           <br>
           <p>Indica a otros usuarios el nivel que tienes en tu instrumento principal.</p>
           <select name="experience" id="level" required>
-              <option *ngFor="let e of exp" [value]="e">{{e}}</option>
+            <option *ngFor="let e of exp" [value]="e">{{e}}</option>
           </select>
         </div>
         <br>
+
         <div class="form-group">
-          <label for="main-instr"><strong>Otros instrumentos</strong></label>
+          <label for="otherInstrument">
+            <strong>Otros instrumentos</strong>
+          </label>
           <br>
-          <p>¿Hay otro instrumento que toques? Inclúyelo aquí.</p>
-          <select name="otherInstrument" id="oth-instrument">
-              <select class="form-control" id="instrument" required>
-                  <option *ngFor="let in of instrument" [value]="in">{{in}}</option>
-                </select>
-          </select>
+          <p>¿Hay otros instrumentos que toques? Inclúyelos aquí.</p>
+          <input type="text" name="otherInstrument" [(ngModel)]="otherInstrument" />
         </div>
-        <br>
+
       </div>
-        <div class="form-group">
-          <button type="save()">Crear perfil</button>
-        </div>
-      </form>
-    </div>
+      <button type="submit">Crear perfil</button>
+    </form>
   </div>
+</div>
