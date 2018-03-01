@@ -11,6 +11,7 @@ export class LoginFormComponent implements OnInit {
   username: string;
   password: string;
   error: string;
+  
   constructor(public session: SessionService, private router: Router) {}
 
   ngOnInit() {}

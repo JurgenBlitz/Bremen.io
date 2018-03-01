@@ -1,19 +1,15 @@
     <h1> Únete a Bremen.io </h1>
       <form>
           <h2> Regístrate </h2>
+          <div>
           <label> Usuario </label>
           <input class="validate[required,custom[onlyLetter],length[6,100]] feedback-input" id="name" type="text" [(ngModel)]="username" #newUser="ngModel" name="username" required minlength="6"/>
           
           <label> Contraseña </label>
           <input type="password" class="form-control" [(ngModel)]="password" name="password"/>
           
-          <label> Ciudad </label>
-          <select class="form-control" id="city" [(ngModel)]="city" name='city'>
-            <option *ngFor="let c of city" [value]="c">{{c}}</option>
-          </select>
-
-          <button (click)="signup()"> Registrarme </button>
-              
+          <button class="signmeup" (click)="signup()"> Registrarme </button>
+          </div>   
       </form>
           
             <p>¿Ya estás registrado?</p>

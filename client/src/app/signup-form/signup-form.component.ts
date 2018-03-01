@@ -12,10 +12,6 @@ export class SignupFormComponent implements OnInit {
 
   username: string;
   password: string;
-  city= [, "Alicante", "Almería", "Badajoz", "Barcelona", "Bilbao", "Burgos", "Cáceres", "Cádiz",
-  "Córdoba", "Gerona", "Granada", "Guadalajara", "Huelva", "La Coruña", "Las Palmas de Gran Canaria",
-  "Málaga", "Madrid", "Murcia", "Oviedo", "Pamplona", "Salamanca", "Santander", "Santa Cruz de Tenerife",
-  "Segovia", "Sevilla", "Toledo", "Valencia", "Vigo", "Vitoria", "Zaragoza"];
   error: string;
   
   constructor(public session: SessionService, private router: Router) {}
@@ -24,7 +20,7 @@ export class SignupFormComponent implements OnInit {
 
   signup() {
     this.session
-      .signup(this.username, this.password, this.city[0])
+      .signup(this.username, this.password)
       .subscribe(data => {
         console.log(data);
         this.router.navigate(["/edit-user"]);
