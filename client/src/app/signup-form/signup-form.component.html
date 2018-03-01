@@ -1,15 +1,20 @@
     <h1> Únete a Bremen.io </h1>
       <form>
-          <h2> Regístrate </h2>
-          <div>
-          <label> Usuario </label>
-          <input class="validate[required,custom[onlyLetter],length[6,100]] feedback-input" id="name" type="text" [(ngModel)]="username" #newUser="ngModel" name="username" required minlength="6"/>
-          
-          <label> Contraseña </label>
-          <input type="password" class="form-control" [(ngModel)]="password" name="password"/>
-          
-          <button class="signmeup" (click)="signup()"> Registrarme </button>
-          </div>   
+
+        <div class="registry">
+          <div class="boxes">
+          <label> Usuario: </label>
+          <input class="validate[required,custom[onlyLetter],length[6,100]] feedback-input" id="name" type="text" [(ngModel)]="username"
+            #newUser="ngModel" name="username" required minlength="6" />
+ 
+          <label> Contraseña: </label>
+          <input type="password" class="form-control" [(ngModel)]="password" name="password" />
+        </div>
+
+          <div class="butt">
+            <button class="signmeup" (click)="signup()"> Registrarme </button>
+          </div>
+        </div>
       </form>
           
             <p>¿Ya estás registrado?</p>
