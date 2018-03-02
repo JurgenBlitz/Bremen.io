@@ -18,6 +18,7 @@ import { SessionService } from '../services/session.service';
 import { MessageService } from '../services/message.service';
 import { UserService } from '../services/user.service';
 import { AdsService } from '../services/ads.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AdsService } from '../services/ads.service';
     ProfileComponent,
     EditUserComponent,
     CreateAdComponent,
-    AdListComponent
+    AdListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

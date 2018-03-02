@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
-import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -11,9 +12,8 @@ export class ProfileComponent implements OnInit {
 
   user:Array<any>
   error:string;
-  constructor (public session: SessionService, private router: Router) {
-
-   }
+  constructor (public session: SessionService, 
+    private userService:UserService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }

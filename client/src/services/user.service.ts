@@ -17,7 +17,7 @@ interface User {
 @Injectable()
 export class UserService {
 
-  BASEURL:string = "http://localhost:3000" /*good?*/
+  BASEURL:string = "http://localhost:3000"
   options:object = {withCredentials:true};
   constructor(private http: Http) {
   }
