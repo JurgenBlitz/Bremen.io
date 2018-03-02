@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SignupFormComponent implements OnInit {
 
-  username: string;
+  email: string;
   password: string;
   error: string;
   
@@ -20,7 +20,7 @@ export class SignupFormComponent implements OnInit {
 
   signup() {
     this.session
-      .signup(this.username, this.password)
+      .signup(this.email, this.password)
       .subscribe(data => {
         console.log(data);
         this.router.navigate(["/edit-user", data._id]);

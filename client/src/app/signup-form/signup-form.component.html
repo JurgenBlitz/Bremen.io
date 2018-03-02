@@ -3,9 +3,9 @@
 
         <div class="registry">
           <div class="boxes">
-            <label> Usuario: </label>
-            <input class="validate[required,custom[onlyLetter],length[6,100]] feedback-input" id="name" type="text" [(ngModel)]="username"
-              #newUser="ngModel" name="username" required minlength="6" />
+            <label> E-Mail: </label>
+            <input class="validate[required,custom[onlyLetter],length[6,100]] feedback-input" id="email" type="text" [(ngModel)]="email"
+              #newUser="ngModel" name="email" required minlength="6" />
         
             <label> Contraseña: </label>
             <input type="password" class="form-control" [(ngModel)]="password" name="password" />

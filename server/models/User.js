@@ -5,9 +5,9 @@ const Experience= require('./ExpEnum');
 const City= require('./CitiesEnum');
 
 const userSchema = new Schema({
-    username: {type: String, required: true }, 
+    username: String,
     password: {type: String, required: true },
-    email: String,
+    email: {type: String, required: true },
     city: {type: String, enum: City},
     description: String,
     instrument: { type: String, enum: Instrument}, 
