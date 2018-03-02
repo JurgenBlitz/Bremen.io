@@ -1,7 +1,7 @@
 
   <!-- <a class="btn btn-primary" href="/">Ir a inicio</a> -->
 
-    <button (click)="logout()"> Cerrar sesión </button>
+    <button class="out" (click)="logout()"> Cerrar sesión </button>
 
 
   <h2>Tu perfil</h2>
@@ -9,29 +9,19 @@
 
   <div class="profile"  name="user">
 
-  <strong> {{user?.imgUrl}} </strong>
-  <br/>
-  <strong> {{user?.username}} </strong>
-  <br/>
-  <strong> {{user?.city}} </strong>
-  <br/>
-  <strong> {{user?.description}} </strong>
-  <br/>
-  <strong> {{user?.instrument}} </strong><i> {{user?.experience}} </i>
-  <br/>
-  <strong> {{user?.otherInstrument}} </strong><br>
+  <!-- <strong> {{user?.imgUrl}} </strong> -->
+  <h4> {{user?.username}} </h4>
+  <h4> {{user?.city}} </h4>
+  <h4> {{user?.description}} </h4>
+  <h4> {{user?.instrument}} <i> {{user?.experience}} </i></h4>
+  <h4> {{user?.otherInstrument}} </h4><br>
   </div>
 
+  <button class="create" routerLink="/ad/new">Crear anuncio</button>
+     
 
-<!-- 
 
-
-  <a class="btn btn-primary" href="/users/<%= user._id %>/edit">Editar mis datos</a>
+  <!-- <a class="btn btn-primary" href="/users/<%= user._id %>/edit">Editar mis datos</a>
   <a class="btn btn-primary" href="/ad/my-ads">Mis anuncios</a>
-  <a class="btn btn-primary" href="/ad/new">Crear anuncio</a>
-
-
-
-
 <a class="btn btn-primary" href="/users/delete">Eliminar mi perfil</a> -->
 

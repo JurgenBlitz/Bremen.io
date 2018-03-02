@@ -14,7 +14,6 @@ const adsSchema = new Schema({
   creator_id: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   city: { type: String, enum: City, required: true},
   imgUrl: { type: String, default: "https://i.ytimg.com/vi/5vs0DTRdD8A/hqdefault.jpg"},
-
   audio: { type: String, default: "https:// any link" },
   video: { type: String, default: "https:// any link" },
 }, {

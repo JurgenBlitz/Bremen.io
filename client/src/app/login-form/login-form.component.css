@@ -1,12 +1,42 @@
 .error{
-    width: 15%;
-    background-color:red;
-    color: white;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
+    color: red;
 }
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    width: 100% auto;
+}
+h1 {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.registry {
+    background-color: #3b7fed;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    height: 110px;
+    width: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    border-style: blue 5px solid;
+    border-radius: 5px;
+}
+label {
+    padding-left: 30px;
+}
+.boxes {
+    padding-top: 20px;
+}
+
+button {
+    background-color:#1e417a;
+    color: white;
+    border-radius: 9px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 240px;
 }

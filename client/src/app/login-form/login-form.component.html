@@ -1,33 +1,32 @@
-<body>
-<h1> Bienvenido de vuelta a Bremen.io </h1>
-<div *ngIf="!session.getUser()">
-  <form>
-    <label> Usuario </label>
-    <input class="validate[required,custom[onlyLetter],length[6,100]] feedback-input" id="name" type="text" [(ngModel)]="username" #newUser="ngModel" name="username" required minlength="6"/>
-    <div *ngIf="newUser.errors && (newUser.dirty || newUser.touched)">
-        <p class="error" [hidden]="!newUser.errors.minlength">
-          <small>El nombre de usuario debe tener un mínimo de 6 caracteres.</small>
-        </p>
-      </div>
-    <br>
+      <form>
 
-    <label> Contraseña </label>
-    <input type="password" [(ngModel)]="password" name="password"/>
-    <div>
-      <button (click)="login()"> Entrar </button>
+        <div class="registry">
+          <div class="boxes">
+            <label> Usuario: </label>
+            <input class="validate[required,custom[onlyLetter],length[6,100]] feedback-input" id="name" type="text" [(ngModel)]="username"
+              #newUser="ngModel" name="username" required minlength="6" />
+        
+            <label> Contraseña: </label>
+            <input type="password" class="form-control" [(ngModel)]="password" name="password" />
+          </div>
+        
+          <div class="butt">
+            <button class="signmeup" (click)="login()"> Entrar en Bremen </button>
+          </div>
+        </div>
+        </form>
+
+        <div class="login">
+          <p>¿No tienes cuenta?</p>
+          <button routerLink="/signup">Registrarme</button>
+        </div>
+        <!-- <p *ngIf="error" class="error"> {{ error }} </p> -->
+        
+        
+        
+        
+        
+        <div *ngIf="session.getUser()">
+          <pre> {{ session.getUser() | json }} </pre>
+          <button (click)="logout()"> Cerrar sesión </button>
     </div>
-
-    <div>
-      <p>¿No estás registrado?</p>
-      <button (click)="signup()"> Registrarme </button>
-    </div>
-
-  </form>
-  <p *ngIf="error" class="error"> {{ error }} </p>
-</div>
-
-<div *ngIf="session.getUser()">
-  <pre> {{ session.getUser() | json }} </pre>
-  <button (click)="logout()"> Cerrar sesión </button>
-</div>
-</body>

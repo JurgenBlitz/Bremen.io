@@ -1,3 +1,68 @@
-<p>
-  create-ad works!
-</p>
+<div class="container">
+  <div class="row">
+
+    <form (ngSubmit)="save(myForm)" #myForm="ngForm">
+      <div class="parent-box">
+        <div class="form-group">
+          <h2>Crea tu anuncio</h2>
+        </div>
+
+        <div class="form-group">
+          <label for="category">
+            <strong>Tipo de anuncio</strong>
+          </label>
+          <br>
+          <p>¿Eres un músico en busca de un nuevo proyecto? ¿O ya tienes una banda, y te falta alguien?</p>
+          <select name="category" id="level" [ngModel]="category" required class="inputs">
+            <option *ngFor="let c of category" value="{{c}}">{{c}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <img class="avatar" src="http://style.anu.edu.au/_anu/4/images/placeholders/person.png" height="150px" width="150px">
+          <p>Puedes incluir una imagen que represente a tu proyecto- o una que te represente a ti como músico..</p>
+          <input type="file" name="image" class="inputs">
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="username"><strong>Título de tu anuncio</strong>*</label>
+          <p>Quién eres, y qué buscas</p>
+          <input type="text" name="username" [(ngModel)]="username" minlength="6" class="inputs" placeholder="Escoge un título para tu anuncio"/>
+          <small>Te recomendamos una estructura como ésta: (Grupo de jazz busca bajista)</small>
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="city"><strong>Ciudad</strong>*</label>
+          <p>¿En qué ciudad vas a tocar?</p>
+          <select class="form-control" id="city" [ngModel]="city" name='city' class="inputs"  >
+            <option *ngFor="let c of city" value="{{c}}">{{c}}</option>
+          </select>
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="description"><strong>Descripción</strong></label>
+          <p>Cuenta tu idea a los demás usuarios. ¡No te cortes a la hora de incluir detalles!<br>
+            Así el resto de los usuarios se harán la mejor idea posible de tu proyecto.</p>
+          <input type="text" name="description" [(ngModel)]="description" id="description " maxlength="200" class="info-input" placeholder="Cuenta algo sobre ti"/>
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="mainInstrument"><strong>Instrumento que buscas o que ofreces</strong>*</label>
+          <p>Si estás montando una banda nueva, selecciona qué miembro o instrumento buscas<br>
+            Si eres músico, indica cuál es tu instrumento o disciplina principal.</p>
+          <br>
+          <select class="form-control" id="instrument" [ngModel]="instrument" name='instrument' required class="inputs">
+            <option *ngFor="let in of instrument" value="{{in}}">{{in}}</option>
+          </select>
+        </div>
+
+
+      </div>
+      <button>Publicar anuncio</button>
+    </form>
+  </div>
+</div>
