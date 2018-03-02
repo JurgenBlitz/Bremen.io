@@ -13,7 +13,7 @@
           </label>
           <br>
           <p>¿Eres un músico en busca de un nuevo proyecto? ¿O ya tienes una banda, y te falta alguien?</p>
-          <select name="category" id="level" [ngModel]="category" required class="inputs">
+          <select name="category" id="categ" [ngModel]="category" required class="inputs">
             <option *ngFor="let c of category" value="{{c}}">{{c}}</option>
           </select>
         </div>
@@ -29,7 +29,20 @@
           <label for="username"><strong>Título de tu anuncio</strong>*</label>
           <p>Quién eres, y qué buscas</p>
           <input type="text" name="username" [(ngModel)]="username" minlength="6" class="inputs" placeholder="Escoge un título para tu anuncio"/>
-          <small>Te recomendamos una estructura como ésta: (Grupo de jazz busca bajista)</small>
+          <br>
+          <small><i>Te recomendamos una estructura como ésta: (Grupo de jazz busca bajista)</i></small>
+        </div>
+
+        <br>
+        <div class="form-group">
+          <label for="styles">
+            <strong>Tipo de anuncio</strong>
+          </label>
+          <br>
+          <p>Incluye un estilo que sirva de etiqueta básica.</p>
+          <select name="styles" id="style" [ngModel]="styles" required class="inputs">
+            <option *ngFor="let s of styles" value="{{s}}">{{s}}</option>
+          </select>
         </div>
 
         <br>

@@ -27,10 +27,22 @@ export class CreateAdComponent implements OnInit {
     "New Age", "New Wave", "Pop", "Pop-rock", "Psicodelia", "Punk", "R&B", "Ranchera", "Rap",
     "Reggae", "Rock", "Rockabilly", "Salsa", "Samba", "Ska", "Soul", "Swing"]
 
+  userId 
+    
   constructor (public session: SessionService, 
   private adService:AdService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    // this.route.params.subscribe(params => {
+    //   this.userId = params['id']
+    // })
+    // console.log(this.session.getUser())  
   }
-
+  save(form){
+    console.log(form.value)
+    const title = this.title
+    this.adService.editMyAd(form.value, this.userId)
+    .map(user => this.router.navigate(['/profile', this.userId]))
+    .subscribe()
+  }
 }

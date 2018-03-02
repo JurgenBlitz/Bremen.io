@@ -24,6 +24,7 @@ export class EditUserComponent implements OnInit {
   otherInstrument: string;
   error: string;
   userId
+
   constructor (public session: SessionService, 
   private userService:UserService, private router: Router, private route: ActivatedRoute) { }
 
@@ -31,8 +32,7 @@ export class EditUserComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.userId = params['id']
     })
-    console.log(this.session.getUser())
-    
+    console.log(this.session.getUser())  
   }
 
   save(form){
@@ -41,7 +41,6 @@ export class EditUserComponent implements OnInit {
     this.userService.editMyUser(form.value, this.userId)
     .map(user => this.router.navigate(['/profile', this.userId]))
     .subscribe()
-
   }
 
 }

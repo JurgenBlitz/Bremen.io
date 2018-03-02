@@ -32,5 +32,7 @@ export class AdService {
     console.log(e);
     return Observable.throw(e.json().message);
   }
-
+  editMyAd(){
+    
+  }
 }
