@@ -10,7 +10,7 @@ const userSchema = new Schema({
     email: String,
     city: {type: String, enum: City},
     description: String,
-    mainInstrument: { type: String, enum: Instrument}, 
+    instrument: { type: String, enum: Instrument}, 
     experience: { type: String, enum: Experience},
     otherInstrument: { type: String}, 
     imgUrl: { type: String, default: "https://pbs.twimg.com/profile_images/889232092441214978/beVAb2-k_400x400.jpg" }

@@ -1,27 +1,30 @@
 
-  <a class="btn btn-primary" href="/">Ir a inicio</a>
+  <!-- <a class="btn btn-primary" href="/">Ir a inicio</a> -->
 
     <button (click)="logout()"> Cerrar sesión </button>
 
 
   <h2>Tu perfil</h2>
-  <a class="btn btn-primary" href="/ad/list">Ver lista completa de anuncios</a>
+  <!-- <a class="btn btn-primary" href="/ad/list">Ver lista completa de anuncios</a> -->
 
-  <div class="profile" *ngFor>
-  <img class="user-image" width="100px" height="100px">
-  
-  <strong> {{user.imgUrl}} </strong>
+  <div class="profile"  name="user">
+
+  <strong> {{user?.imgUrl}} </strong>
   <br/>
-  <strong> {{user.username}} </strong>
+  <strong> {{user?.username}} </strong>
   <br/>
-  <strong> {{user.city}} </strong>
+  <strong> {{user?.city}} </strong>
   <br/>
-  <strong> {{user.description}} </strong>
+  <strong> {{user?.description}} </strong>
   <br/>
-  <strong> {{user.mainInstrument}} </strong><i> {{user.experience}} </i>
+  <strong> {{user?.instrument}} </strong><i> {{user?.experience}} </i>
   <br/>
-  <strong> {{user.otherInstrument}} </strong><br>
+  <strong> {{user?.otherInstrument}} </strong><br>
   </div>
+
+
+<!-- 
+
 
   <a class="btn btn-primary" href="/users/<%= user._id %>/edit">Editar mis datos</a>
   <a class="btn btn-primary" href="/ad/my-ads">Mis anuncios</a>
@@ -30,5 +33,5 @@
 
 
 
-<a class="btn btn-primary" href="/users/delete">Eliminar mi perfil</a>
+<a class="btn btn-primary" href="/users/delete">Eliminar mi perfil</a> -->
 

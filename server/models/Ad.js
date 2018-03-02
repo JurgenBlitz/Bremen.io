@@ -21,4 +21,4 @@ const adsSchema = new Schema({
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
   });
 
-module.exports = mongoose.model('Ads', adsSchema); 
+module.exports = mongoose.model('Ad', adsSchema); 

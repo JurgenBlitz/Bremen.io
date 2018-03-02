@@ -1,11 +1,10 @@
 const express = require("express");
-const router = express.Router();
+const adRoutes = express.Router();
 const City = require("../models/CitiesEnum");
 const Instrument = require("../models/InstrumentsEnum");
 const Types = require("../models/StylesEnum");
 const debug = require("debug")("m2-0118-ironfunding:campaign");
-const Ad = require("../models/Ads");
-const Category= require("../models/TypesEnum");
+const Ad = require("../models/Ad");
 // Upload files with multer
 // const multer = require('multer');
 // const upload = multer({ dest: __dirname + '/../uploads' });
@@ -36,8 +35,7 @@ const checkOwnership = (req, res, next) => {
   });
 };
 
-router.post("/new", [ensureLoggedIn("/auth/login")], (req, res, next) => {
-  // , upload.single('image')
+adRoutes.post("/new", [ensureLoggedIn("/auth/login")], (req, res, next) => {
   const {
     title,
     category,
@@ -74,14 +72,14 @@ router.post("/new", [ensureLoggedIn("/auth/login")], (req, res, next) => {
   });
 
 //Complete ad list
-router.get("/list", (req, res) => {
+adRoutes.get("/list", (req, res) => {
   Ad.find().exec((err, list) => {
     res.render("ad/list", { list: list, city: City, styles: Types, types: Category });
     });
   });
 
 
-router.post("/list", (req, res) => {
+adRoutes.post("/list", (req, res) => {
   const city = req.body.city;
   const styles = req.body.styles;
   if (styles == "Cualquiera")  {
@@ -102,7 +100,7 @@ router.post("/list", (req, res) => {
 });
 
 //Show the user's ads
-router.get("/my-ads", (req, res) => {
+adRoutes.get("/my-ads", (req, res) => {
   Ad.find({creator_id: res.locals.user._id})
     .then(respuesta => {
       res.render('ad/my-ads', {list: respuesta})
@@ -113,7 +111,7 @@ router.get("/my-ads", (req, res) => {
   });
 
 //Show newly created ad, to edit or delete 
-router.get("/show/:id", (req, res, next) => {
+adRoutes.get("/show/:id", (req, res, next) => {
   Ad.findById(req.params.id)
     .populate("creator_id")
     .then(c => res.render("ad/show", { ad: c }))
@@ -121,7 +119,7 @@ router.get("/show/:id", (req, res, next) => {
 });
 
 //Edit an ad
-router.get("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
+adRoutes.get("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
   Ad.findById(req.params.id, (err, ad) => {
     if (err) {
       return next(err);
@@ -138,7 +136,7 @@ router.get("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
   });
 });
 
-router.post("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
+adRoutes.post("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
   const updates = ({
     title,
     types,
@@ -150,28 +148,28 @@ router.post("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
     city
   } = req.body);
 
-  Ad.findByIdAndUpdate(req.params.id, updates, (err, ad) => {
+  Ad.findByIdAndUpdate(id, updates, { new: true }, (err, ad) => {
     if (err) {
-      return res.render("ad/edit", {
-        ad,
-        errors: ad.errors
-      });
-    }
+        return res.status(400).json({ message: 'Hemos tenido un error' });
+      }
     if (!ad) {
       return next(new Error("Error al editar, el anuncio no existe"));
     }
-    return res.redirect(`/ad/show/${ad._id}`);
+    req.ad = ad;
+    return res.status(200).json(ad);
   });
 });
 
 //Delete an ad
-router.get("/:id/delete", (req, res) => {
-  const id = req.params.id;
-  Ad.findById(id).exec((err, ad) => {
-    ad.remove({}, err => {
-      res.redirect("/ad/list");
-    });
+adRoutes.get("/:id/delete", (req, res) => {
+  Ad.findByIdAndRemove(req.user._id, function(err, user) {
+    if (err) {
+      return res.status(400).json({ message: "Hemos tenido un error" });
+    } else {
+      res.status(200).json({ message: "Usuario eliminado con éxito" });
+    }
   });
 });
+
 
 module.exports = adRoutes;

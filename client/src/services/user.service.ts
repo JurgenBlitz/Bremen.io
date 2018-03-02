@@ -9,7 +9,8 @@ interface User {
   username:string,
   imgUrl:string,
   description:string,
-  mainInstrument:string,
+  city:string,
+  instrument:string,
   experience:string,
   otherInstrument:string,
 }
@@ -22,22 +23,30 @@ export class UserService {
   constructor(private http: Http) {
   }
 
-  private user:User;
-
-  getUser(){
-    return this.user;
-  }
+  private user: User;
 
   handleError(e) {
     console.log(e);
     return Observable.throw(e.json().message);
   }
 
+
   editMyUser (user, userId) {
     console.log(user);
     return this.http.post(`${this.BASEURL}/api/users/${userId}/edit`, user, this.options)
       .map(res => res.json())
+      .map(user  =>  {
+        this.user = user; 
+        return user;
+      })
       .catch(this.handleError);
+  }
+
+  show(userId){
+    return this.http.get(`${this.BASEURL}/api/users/${userId}/show`, this.options)
+    .map(res => res.json())
+    .map(user=> user)
+    .catch(this.handleError);
   }
 
 }
