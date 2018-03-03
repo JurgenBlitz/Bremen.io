@@ -25,24 +25,22 @@ export class CreateAdComponent implements OnInit {
     "Country", "Cumbia", "Dance", "Dubstep", "Electrónica", "Experimental", "Flamenco", "Folk",
     "Funk", "Garaje", "Gospel", "Grunge", "Hip hop", "Indie", "Jazz", "Latino", "Merengue", "Metal",
     "New Age", "New Wave", "Pop", "Pop-rock", "Psicodelia", "Punk", "R&B", "Ranchera", "Rap",
-    "Reggae", "Rock", "Rockabilly", "Salsa", "Samba", "Ska", "Soul", "Swing"]
+    "Reggae", "Rock", "Rockabilly", "Salsa", "Samba", "Ska", "Soul", "Swing"];
 
+  error: string;
   userId 
+  adId
     
   constructor (public session: SessionService, 
   private adService:AdService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // this.route.params.subscribe(params => {
-    //   this.userId = params['id']
-    // })
-    // console.log(this.session.getUser())  
   }
   save(form){
     console.log(form.value)
     const title = this.title
-    this.adService.editMyAd(form.value, this.userId)
-    .map(user => this.router.navigate(['/profile', this.userId]))
+    this.adService.createAd(form.value)
+    .map(ad => this.router.navigate([`/show, ${ad._id}`])) //pasar parámetro de Id de anuncio?
     .subscribe()
   }
 }

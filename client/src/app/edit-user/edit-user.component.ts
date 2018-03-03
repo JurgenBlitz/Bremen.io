@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { city } from '../';
 
 @Component({
   selector: 'app-edit-user',
@@ -13,10 +14,7 @@ export class EditUserComponent implements OnInit {
   imgUrl:string;
   username: string;
   description: string;
-  city= ["Alicante", "Almería", "Badajoz", "Barcelona", "Bilbao", "Burgos", "Cáceres", "Cádiz",
-  "Córdoba", "Gerona", "Granada", "Guadalajara", "Huelva", "La Coruña", "Las Palmas de Gran Canaria",
-  "Málaga", "Madrid", "Murcia", "Oviedo", "Pamplona", "Salamanca", "Santander", "Santa Cruz de Tenerife",
-  "Segovia", "Sevilla", "Toledo", "Valencia", "Vigo", "Vitoria", "Zaragoza"];
+  city: String[]; 
   instrument = ["Acordeón", "Armónica", "Bajo", "Batería", "Canto", "Clarinete", "Contrabajo", "DJ",	
   "Flauta", "Gaita", "Guitarra", "Kazoo", "Oboe", "Percusión", "Teclado", "Piano", "Saxo", "Sintetizador",
   "Teclado", "Trombón", "Trompeta", "Tuba", "Ukelele", "Viola", "Violín", "Violonchelo", "Otros"];
@@ -29,6 +27,7 @@ export class EditUserComponent implements OnInit {
   private userService:UserService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.city = city;
     this.route.params.subscribe(params => {
       this.userId = params['id']
     })

@@ -24,15 +24,30 @@ export class AdService {
   }
   public ad: Ad;
 
-  getUser(){
-    return this.ad;
+  // getAd(){
+  //   return this.ad;
+  // }
+
+  handleError(error) {
+    console.log(error);
+    return Observable.throw(error.json().message);
+  }
+  createAd(ad){
+    console.log(ad);
+    return this.http.post(`${this.BASEURL}/api/ads/new`, ad, this.options)
+    .map(res => res.json())
+
   }
 
-  handleError(e) {
-    console.log(e);
-    return Observable.throw(e.json().message);
-  }
-  editMyAd(){
-    
-  }
+  // editMyUser (user, userId) {
+  //   console.log(user);
+  //   return this.http.post(`${this.BASEURL}/api/users/${userId}/edit`, user, this.options)
+  //     .map(res => res.json())
+  //     .map(user  =>  {
+  //       this.user = user; 
+  //       return user;
+  //     })
+  //     .catch(this.handleError);
+  // }
+
 }

@@ -47,7 +47,7 @@ adRoutes.post("/new", [ensureLoggedIn("/auth/login")], (req, res, next) => {
     city
   } = req.body;
   console.log(req.body);
-  const newAd = new Ad({
+  const adInfo = {
     title,
     types,
     description,
@@ -58,15 +58,16 @@ adRoutes.post("/new", [ensureLoggedIn("/auth/login")], (req, res, next) => {
     video,
     creator_id: req.user._id
     //imgUrl: req.file.filename
-  });
-
+  }
+  const newAd = new Ad(adInfo);
   newAd
     .save()
-    .then(c => {
+    .then(adCreated => {
         console.log("entra")
-      res.redirect("/ad/show/" + c._id);
+        console.log(adCreated)
+      // res.redirect(`/ad/show/${adCreate_id}`);
     })
-    .catch(e => {
+    .catch( ()=> {
       res.redirect("/");
     });
   });
@@ -80,9 +81,8 @@ adRoutes.get("/list", (req, res) => {
 
 
 adRoutes.post("/list", (req, res) => {
-  const city = req.body.city;
-  const styles = req.body.styles;
-  if (styles == "Cualquiera")  {
+  const {city, styles} = req.body;
+  if (styles === "Cualquiera")  {
     Ad.find({ city: city }).exec((err, list) => {
       res.render("ad/list", { list: list, city: City, styles: Types });
     });
