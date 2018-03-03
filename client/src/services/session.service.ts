@@ -28,9 +28,9 @@ export class SessionService {
     return (user) => {
       if(set){
         this.user = user;
-        console.log(`Setting user, welcome ${this.user.username}`)
+        console.log(`Setting user, welcome ${this.user.email}`)
       }else{
-        console.log(`Hasta pronto ${this.user.username}`)
+        console.log(`Hasta pronto ${this.user.email}`)
         this.user = null
       }
       return user;

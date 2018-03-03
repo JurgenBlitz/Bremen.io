@@ -99,6 +99,14 @@ adRoutes.post("/list", (req, res) => {
   }  
 });
 
+//Show newly created ad, to edit or delete 
+adRoutes.get("/show/:id", (req, res, next) => {
+  Ad.findById(req.params.id)
+    .populate("creator_id")
+    .then(c => res.render("ad/show", { ad: c }))
+    .catch(e => next(e));
+});
+
 //Show the user's ads
 adRoutes.get("/my-ads", (req, res) => {
   Ad.find({creator_id: res.locals.user._id})
@@ -109,14 +117,6 @@ adRoutes.get("/my-ads", (req, res) => {
       console.log(error)
     });
   });
-
-//Show newly created ad, to edit or delete 
-adRoutes.get("/show/:id", (req, res, next) => {
-  Ad.findById(req.params.id)
-    .populate("creator_id")
-    .then(c => res.render("ad/show", { ad: c }))
-    .catch(e => next(e));
-});
 
 //Edit an ad
 adRoutes.get("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {

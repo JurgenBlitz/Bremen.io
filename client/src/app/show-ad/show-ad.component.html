@@ -1,0 +1,15 @@
+<button class="out" (click)="logout()"> Cerrar sesión </button>
+<button class="create" routerLink="/ad/new"> Crear anuncio</button>
+
+<!-- <a class="btn btn-primary" href="/ad/list">Ver lista completa de anuncios</a> -->
+
+<div class="single-ad"  name="ad">
+
+<!-- <strong> {{ad?.imgUrl}} </strong> -->
+<h4> {{ad?.title}} </h4>
+<h4> {{ad?.description}} </h4>
+<h4> {{ad?.city}} </h4>
+<h4> {{ad?.instrument}} </h4>
+<h4> {{ad?.styles}} </h4>
+</div>
+

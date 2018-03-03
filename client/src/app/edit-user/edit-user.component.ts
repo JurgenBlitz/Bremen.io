@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
-import { city } from '../';
+import { city } from '../commondata/city';
+import { instrument } from '../commondata/instrument';
 
 @Component({
   selector: 'app-edit-user',
@@ -15,9 +16,7 @@ export class EditUserComponent implements OnInit {
   username: string;
   description: string;
   city: String[]; 
-  instrument = ["Acordeón", "Armónica", "Bajo", "Batería", "Canto", "Clarinete", "Contrabajo", "DJ",	
-  "Flauta", "Gaita", "Guitarra", "Kazoo", "Oboe", "Percusión", "Teclado", "Piano", "Saxo", "Sintetizador",
-  "Teclado", "Trombón", "Trompeta", "Tuba", "Ukelele", "Viola", "Violín", "Violonchelo", "Otros"];
+  instrument: String[];
   exp = [ "Principiante", "Intermedio", "Avanzado", "Profesional"];
   otherInstrument: string;
   error: string;
