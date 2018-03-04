@@ -31,7 +31,7 @@ export class UserService {
   }
 
 
-  fillProfile (user, userId) {
+  fillProfile(user, userId) {
     console.log(user);
     return this.http.post(`${this.BASEURL}/api/users/${userId}/edit`, user, this.options)
       .map(res => res.json())
@@ -49,4 +49,8 @@ export class UserService {
     .catch(this.handleError);
   }
 
+  editProfile (user, userId){
+    
+  }
+  
 }

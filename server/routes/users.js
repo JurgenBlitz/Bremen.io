@@ -24,7 +24,7 @@ userRoutes.get("/:id/show", (req, res, next) => {
     .catch(err => res.status(404).json(err));
 });
 
-//start the user edit process
+//save additional details during signup
 userRoutes.post("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
   const id = req.params.id;
   const updates = {
@@ -37,8 +37,6 @@ userRoutes.post("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
     otherInstrument
   } = req.body;
 
-
-
   User.findByIdAndUpdate(id, updates, { new: true }, (err, user) => {
     if (err) {
       return res.status(400).json({ message: "Hemos tenido un error" });
@@ -50,6 +48,46 @@ userRoutes.post("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
     return res.status(200).json(user);
   });
 });
+
+//edit the profile after signup
+userRoutes.get("/:id/edit", ensureLoggedIn('/login'), (req, res, next) => {
+  User.findById(req.user._id, (err, user) => {
+    if (err) { return next(err) }
+    if (!user) { return next(new Error("404")) }
+  return res.render("users/edit", {city: City, mainInstrument: Instrument, otherInstrument: Instrument, experience: Experience});
+  });
+}); 
+
+userRoutes.post("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
+  const updates = ({
+    imgUrl,
+    username,
+    city,
+    description,
+    styles,
+    mainInstrument,
+    otherInstrument,
+    experience
+  } = req.body);
+
+  User.findByIdAndUpdate(req.user._id, updates, { new: true }, (err, user) => {
+    if (err) {
+      //req.flash('info','Errores al editar');
+      return res.render("users/edit", {
+        user,
+        errors: user.errors
+      });
+    }
+    if (!user) {
+      return next(new Error("Error al editar, el usuario no existe"));
+    }
+    //req.flash('info','Datos editados');
+    req.user = user;
+    return res.redirect(`/users/activity`);
+  });
+});
+
+
 
 //delete the user
 userRoutes.get("/:id/delete", (req, res) => {

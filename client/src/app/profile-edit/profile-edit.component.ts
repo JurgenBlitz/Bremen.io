@@ -9,10 +9,26 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./profile-edit.component.css']
 })
 export class ProfileEditComponent implements OnInit {
-
-  constructor() { }
+    user;
+    error: string;
+    constructor(
+      public session: SessionService,
+      private userService: UserService,
+      private router: Router,
+      private route: ActivatedRoute
+    ) {}
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.userService.show(params["id"]).subscribe(user => {
+        console.log(user);
+        this.user = user;
+      });
+    });
+  }
+
+  editProfile (user, userId){
+    
   }
 
 }
