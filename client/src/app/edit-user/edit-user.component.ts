@@ -40,7 +40,7 @@ export class EditUserComponent implements OnInit {
   save(form){
     console.log(form.value)
     const username = this.username
-    this.userService.editMyUser(form.value, this.userId)
+    this.userService.fillProfile(form.value, this.userId)
     .map(user => this.router.navigate(['/profile', this.userId]))
     .subscribe()
   }

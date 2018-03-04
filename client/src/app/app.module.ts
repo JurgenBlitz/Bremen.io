@@ -7,6 +7,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { MessageComponent } from './message/message.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { CreateAdComponent } from './create-ad/create-ad.component';
 import { AdListComponent } from './ad-list/ad-list.component';
@@ -23,6 +24,7 @@ import { AdService } from '../services/ad.service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { AdService } from '../services/ad.service';
     CreateAdComponent,
     AdListComponent,
     HomeComponent,
-    ShowAdComponent
+    ShowAdComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,

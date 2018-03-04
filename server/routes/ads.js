@@ -61,16 +61,23 @@ adRoutes.post("/new", [ensureLoggedIn("/auth/login")], (req, res, next) => {
   }
   const newAd = new Ad(adInfo);
   newAd
-    .save()
+    .save() 
     .then(adCreated => {
         console.log("entra")
         console.log(adCreated)
       // res.redirect(`/ad/show/${adCreate_id}`);
     })
     .catch( ()=> {
-      res.redirect("/");
+      res.status(400).json({ message: "Hemos tenido un error" });
     });
   });
+
+
+// AHORA MISMO VOY POR AQUI
+
+
+
+
 
 //Complete ad list
 adRoutes.get("/list", (req, res) => {

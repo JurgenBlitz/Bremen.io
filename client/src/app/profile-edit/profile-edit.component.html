@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+  
+      <form (ngSubmit)="save(myForm)" #myForm="ngForm">
+        <div class="parent-box">
+          <div class="form-group">
+            <h3>Edita tus datos</h3>
+          </div>
+  
+          <div class="form-group">
+            <label for="imgUrl"><strong>Avatar</strong>*</label>
+            <img class="avatar" src="http://style.anu.edu.au/_anu/4/images/placeholders/person.png" height="150px" width="150px">
+            <input type="file" name="image" class="inputs">
+          </div>
+  
+          <br>
+          <div class="form-group">
+            <label for="username"><strong>Tu alias</strong>*</label>
+            <input type="text" name="username" [(ngModel)]="username" minlength="6" class="inputs" placeholder="Elige tu nombre de usuario"/>
+          </div>
+  
+          <br>
+          <div class="form-group">
+            <label for="city"><strong>Ciudad</strong>*</label>
+            <select class="form-control" id="city" [ngModel]="city" name='city' class="inputs"  >
+              <option *ngFor="let c of city" value="{{c}}">{{c}}</option>
+            </select>
+          </div>
+  
+          <br>
+          <div class="form-group">
+            <label for="description"><strong>Descripción</strong></label>
+            <input type="text" name="description" [(ngModel)]="description" id="description " maxlength="200" class="info-input" placeholder="Cuenta algo sobre ti"/>
+          </div>
+  
+          <br>
+          <div class="form-group">
+            <label for="mainInstrument"><strong>Instrumento principal</strong>*</label>
+            <br>
+            <select class="form-control" id="instrument" [ngModel]="instrument" name='instrument' required class="inputs">
+              <option *ngFor="let in of instrument" value="{{in}}">{{in}}</option>
+            </select>
+          </div>
+  
+  
+          <br>
+          <div class="form-group">
+            <label for="experience">
+              <strong>Experiencia</strong>
+            </label>
+            <br>
+            <select name="experience" id="level" [ngModel]="experience" required class="inputs">
+              <option *ngFor="let e of exp" value="{{e}}">{{e}}</option>
+            </select>
+          </div>
+          <br>
+  
+          <div class="form-group">
+            <label for="otherInstrument">
+              <strong>Otros instrumentos</strong>
+            </label>
+            <br>
+            <input type="text" name="otherInstrument" [(ngModel)]="otherInstrument" class="inputs"/>
+          </div>
+  
+        </div>
+        <button>Crear perfil</button>
+      </form>
+    </div>
+  </div>
