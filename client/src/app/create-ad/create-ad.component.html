@@ -13,7 +13,7 @@
           </label>
           <br>
           <p>¿Eres un músico en busca de un nuevo proyecto? ¿O ya tienes una banda, y te falta alguien?</p>
-          <select name="category" id="categ" [ngModel]="category" required class="inputs">
+          <select required name="category" id="categ" [ngModel]="category" required class="inputs">
             <option *ngFor="let c of category" value="{{c}}">{{c}}</option>
           </select>
         </div>
@@ -26,9 +26,9 @@
 
         <br>
         <div class="form-group">
-          <label for="username"><strong>Título de tu anuncio</strong>*</label>
+          <label for="title"><strong>Título de tu anuncio</strong>*</label>
           <p>Quién eres, y qué buscas</p>
-          <input type="text" name="username" [(ngModel)]="username" minlength="6" class="inputs" placeholder="Escoge un título para tu anuncio"/>
+          <input type="text" name="title" [(ngModel)]="title" minlength="6" class="inputs" placeholder="Escoge un título para tu anuncio"/>
           <br>
           <small><i>Te recomendamos una estructura como ésta: (Grupo de jazz busca bajista)</i></small>
         </div>

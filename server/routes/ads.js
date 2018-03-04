@@ -49,7 +49,7 @@ adRoutes.post("/new", [ensureLoggedIn("/auth/login")], (req, res, next) => {
   console.log(req.body);
   const adInfo = {
     title,
-    types,
+    category,
     description,
     styles,
     mainInstrument,

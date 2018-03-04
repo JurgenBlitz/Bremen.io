@@ -61,7 +61,7 @@ console.log(User.modelName);
 console.log(Ad.modelName);
 app.use('/api/auth', auth);
 app.use('/api/users', userRoutes);
-// app.use('/api/ads', adRoutes);
+app.use('/api/ads', adRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
