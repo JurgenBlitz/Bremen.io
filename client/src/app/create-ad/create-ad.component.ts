@@ -13,9 +13,9 @@ import { city } from '../commondata/city';
 })
 export class CreateAdComponent implements OnInit {
 
-  imgUrl:string;
+  imgUrl: string;
   title: string;
-  category= ["Grupo busca músico", "Músico busca grupo"];
+  category= ["Proyecto busca músico", "Músico busca proyecto"];
   description: string;
   city= ["Alicante", "Almería", "Badajoz", "Barcelona", "Bilbao", "Burgos", "Cáceres", "Cádiz",
   "Córdoba", "Gerona", "Granada", "Guadalajara", "Huelva", "La Coruña", "Las Palmas de Gran Canaria",
@@ -40,11 +40,12 @@ export class CreateAdComponent implements OnInit {
   }
 
   save(form){
-    console.log(form.value)
     this.adService.createAd(form.value)
-    .subscribe(ad => {
+    .map(ad => {
+      console.log('QQQ')
       console.log(ad);
-      this.router.navigate([`/show, ${ad._id}`]) 
-    });
+      this.router.navigate(['/show', ad._id]) 
+    })
+    .subscribe()
   }
 }

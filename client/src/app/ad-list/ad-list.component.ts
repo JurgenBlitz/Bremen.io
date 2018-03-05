@@ -11,6 +11,7 @@ export class AdListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

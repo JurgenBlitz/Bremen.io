@@ -1,4 +1,7 @@
-const dotenv = require('dotenv').load()
+const dotenv = require('dotenv').load();
+let debug = true;
+
+
 const mongoose = require('mongoose');
 const firstUsers = require('../../models/User');
 const firstAds= require('../../models/Ad');

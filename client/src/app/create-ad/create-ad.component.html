@@ -59,7 +59,8 @@
           <label for="description"><strong>Descripción</strong></label>
           <p>Cuenta tu idea a los demás usuarios. ¡No te cortes a la hora de incluir detalles!<br>
             Así el resto de los usuarios se harán la mejor idea posible de tu proyecto.</p>
-          <input type="text" name="description" [(ngModel)]="description" id="description " maxlength="200" class="info-input" placeholder="Cuenta algo sobre ti"/>
+          <input type="text" name="description" [(ngModel)]="description" id="description " maxlength="200" 
+          textarea cols="100" class="info-input" placeholder="Cuenta algo sobre ti"/>
         </div>
 
         <br>
@@ -71,6 +72,13 @@
           <select class="form-control" id="instrument" [ngModel]="instrument" name='instrument' required class="inputs">
             <option *ngFor="let in of instrument" value="{{in}}">{{in}}</option>
           </select>
+        </div>
+
+        <br>
+        <div class="location">
+          <label for="description"><strong>Localización</strong></label>
+          <p>Si ya tienes un local de ensayo, a los usuarios interesados en tu anuncio puedes serle útil saber si les queda cerca.</p>
+          <!-- <input type="text" name="description" [(ngModel)]="description" id="description " maxlength="200" class="info-input" placeholder="Cuenta algo sobre ti"/> -->
         </div>
 
 

@@ -25,27 +25,19 @@ const checkOwnership = (req, res, next) => {
       return next(err);
     }
     if (!ad) {
-      return next(new Error("Campaign does not exist"));
+      return next(new Error("El anuncio no existe"));
     }
     if (ad.creator_id.equals(req.user._id)) {
       next();
     } else {
-      return next(new Error("You cannot edit this campaign"));
+      return next(new Error("No puedes editar este anuncio"));
     }
   });
 };
 
+//create new ad from the user's profile
 adRoutes.post("/new", [ensureLoggedIn("/auth/login")], (req, res, next) => {
-  const {
-    title,
-    category,
-    description,
-    styles,
-    mainInstrument,
-    audio,
-    video,
-    city
-  } = req.body;
+  const {title, category, description, styles, mainInstrument, audio, video, city} = req.body;
   console.log(req.body);
   const adInfo = {
     title,
@@ -65,7 +57,7 @@ adRoutes.post("/new", [ensureLoggedIn("/auth/login")], (req, res, next) => {
     .then(adCreated => {
         console.log("entra")
         console.log(adCreated)
-      // res.redirect(`/ad/show/${adCreate_id}`);
+        res.status(200).json(adCreated);
     })
     .catch( ()=> {
       res.status(400).json({ message: "Hemos tenido un error" });
@@ -73,10 +65,16 @@ adRoutes.post("/new", [ensureLoggedIn("/auth/login")], (req, res, next) => {
   });
 
 
+//Show newly created ad, to edit or delete 
+adRoutes.get("/show/:id", (req, res, next) => {
+  Ad.findById(req.params.id)
+    .populate("creator_id")
+    .then(ad => res.status(200).json(ad))
+    .catch(err => next(err));
+});
+
+
 // AHORA MISMO VOY POR AQUI
-
-
-
 
 
 //Complete ad list
@@ -106,13 +104,7 @@ adRoutes.post("/list", (req, res) => {
   }  
 });
 
-//Show newly created ad, to edit or delete 
-adRoutes.get("/show/:id", (req, res, next) => {
-  Ad.findById(req.params.id)
-    .populate("creator_id")
-    .then(c => res.render("ad/show", { ad: c }))
-    .catch(e => next(e));
-});
+
 
 //Show the user's ads
 adRoutes.get("/my-ads", (req, res) => {

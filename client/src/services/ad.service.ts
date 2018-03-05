@@ -11,7 +11,7 @@ interface Ad {
   category:string,
   description:string,
   styles:string,
-  mainInstrument:string,
+  instrument:string,
   city: string
 }
 
@@ -36,18 +36,13 @@ export class AdService {
     console.log(ad);
     return this.http.post(`${this.BASEURL}/api/ads/new`, ad, this.options)
     .map(res => res.json())
-    .map(ad => {
-      this.ad = ad;
-      return ad;
-    })
     .catch(this.handleError); 
   }
 
   show(adId){
     console.log(adId);
-    return this.http.get(`${this.BASEURL}/api/ads/${adId}/show`, this.options)
+    return this.http.get(`${this.BASEURL}/api/ads/show/${adId}`, this.options)
     .map(res => res.json())
-    .map(ad=> ad)
     .catch(this.handleError);
   }
 }
