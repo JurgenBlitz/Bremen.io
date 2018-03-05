@@ -1,18 +1,20 @@
 <button class="out" (click)="logout()"> Cerrar sesión </button>
-<button class="create" routerLink="/ad/new"> Crear anuncio</button>
+<button class="create" routerLink="/ad/new"> Crear anuncio nuevo</button>
+<button class="create" routerLink="/ad/new"> Editar este anuncio</button>
+<button class="back" routerLink="/profile"> Mi perfil</button>
 
 <!-- <a class="btn btn-primary" href="/ad/list">Ver lista completa de anuncios</a> -->
 
-<div class="single-ad"  name="ad">
-
-<!-- <strong> {{ad?.imgUrl}} </strong> -->
-<h4> {{ad?.title}} </h4>
-<small> Created by {{user?.username}} on {{created_at}} </small>
-<p> {{ad?.description}} </p>
-<div class="extra-info">
-<i> {{ad?.city}} </i>
-<i> {{ad?.instrument}} </i>
-<i> {{ad?.styles}} </i>
+<div class="single-ad" name="ad">
+    <!-- <strong> {{ad?.imgUrl}} </strong> -->
+    <div class="heading">
+        <h4> {{ad?.title}} </h4>
+        <small> Publicado por {{user?.username}} el {{ad?.created_at}} </small>
+    </div>
+    <p> {{ad?.description}} </p>
+    <ul class="tags">
+        <li><a href="#" class="tag"> {{ad?.city}}</a></li>
+        <li><a href="#" class="tag"> {{ad?.instrument}}</a></li>
+        <li><a href="#" class="tag"> {{ad?.styles}}</a></li>
+    </ul>
 </div>
-</div>
-

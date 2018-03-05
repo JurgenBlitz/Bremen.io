@@ -1,17 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AdService } from '../../services/ad.service';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-ad-list',
   templateUrl: './ad-list.component.html',
   styleUrls: ['./ad-list.component.css']
 })
+
 export class AdListComponent implements OnInit {
 
-  constructor() { }
+  adList: Array<any>;
+  error:string;
+  constructor (public session: SessionService, 
+    private adService:AdService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    
-  }
+      this.adService.getList()
+         .subscribe((adList) => {
+          this.adList = adList;
+        });
+    }
 
 }

@@ -8,6 +8,7 @@ import { HomeComponent } from './app/home/home.component';
 import { CreateAdComponent } from './app/create-ad/create-ad.component';
 import { ShowAdComponent } from './app/show-ad/show-ad.component';
 import { ProfileEditComponent } from './app/profile-edit/profile-edit.component';
+import { AdListComponent } from './app/ad-list/ad-list.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -16,6 +17,7 @@ export const routes: Routes = [
     { path: 'profile/:id', component: ProfileComponent},
     { path: 'edit-user/:id', component: EditUserComponent},
     { path: 'edit-profile/:id', component: ProfileEditComponent},
-    { path: 'ads/new', component: CreateAdComponent}, //paso aquí también el ID?
-    { path: 'show/:id', component: ShowAdComponent}
+    { path: 'ads/new', component: CreateAdComponent},
+    { path: 'show/:id', component: ShowAdComponent},
+    { path: 'adlist', component: AdListComponent }
 ];

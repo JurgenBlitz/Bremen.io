@@ -3,7 +3,6 @@ const adRoutes = express.Router();
 const City = require("../models/CitiesEnum");
 const Instrument = require("../models/InstrumentsEnum");
 const Types = require("../models/StylesEnum");
-const debug = require("debug")("m2-0118-ironfunding:campaign");
 const Ad = require("../models/Ad");
 // Upload files with multer
 // const multer = require('multer');
@@ -73,16 +72,16 @@ adRoutes.get("/show/:id", (req, res, next) => {
     .catch(err => next(err));
 });
 
+//Complete ad list
+adRoutes.get("/list", (req, res) => {
+  Ad.find().exec((err, adList) => {
+    res.status(200).json("ads/adlist");
+    });
+  });
+
 
 // AHORA MISMO VOY POR AQUI
 
-
-//Complete ad list
-adRoutes.get("/list", (req, res) => {
-  Ad.find().exec((err, list) => {
-    res.render("ad/list", { list: list, city: City, styles: Types, types: Category });
-    });
-  });
 
 
 adRoutes.post("/list", (req, res) => {

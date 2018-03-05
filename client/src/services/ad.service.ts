@@ -24,9 +24,6 @@ export class AdService {
   }
   public ad: Ad;
 
-  // getAd(){
-  //   return this.ad;
-  // }
 
   handleError(error) {
     console.log(error);
@@ -45,4 +42,10 @@ export class AdService {
     .map(res => res.json())
     .catch(this.handleError);
   }
+
+  getList() {
+    return this.http.get(`${this.BASEURL}/api/adlist`, this.options)
+    .map((res) => res.json());
+  }
+
 }
