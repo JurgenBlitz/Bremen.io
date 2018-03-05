@@ -12,15 +12,16 @@ import { SessionService } from '../../services/session.service';
 export class AdListComponent implements OnInit {
 
   adList: Array<any>;
-  error:string;
+  error: string;
   constructor (public session: SessionService, 
     private adService:AdService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
       this.adService.getList()
-         .subscribe((adList) => {
+         .map((adList) => {
           this.adList = adList;
-        });
+        })
+        .subscribe()
     }
 
 }

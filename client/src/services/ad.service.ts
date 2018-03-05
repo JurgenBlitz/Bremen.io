@@ -44,7 +44,7 @@ export class AdService {
   }
 
   getList() {
-    return this.http.get(`${this.BASEURL}/api/adlist`, this.options)
+    return this.http.get(`${this.BASEURL}/api/ads/list`, this.options)
     .map((res) => res.json());
   }
 

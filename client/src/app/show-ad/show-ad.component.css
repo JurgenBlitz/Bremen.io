@@ -1,5 +1,15 @@
+.parent {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100% auto;
+  background-color: darkslategray;
+}
+
 .single-ad {
+    margin-top: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #e6eaf2;
+    width: 60%;
+    margin-left: 20%;
 }
 
 .heading {
@@ -8,7 +18,7 @@
     padding-left: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 600px;
+    width: 743px;
     height: 80px;
     color: white;
 }
@@ -16,7 +26,7 @@
 p {
     padding-left: 15px;  
     padding-top: 10px;
-    width: 600px;
+    width: 743px;
     height:100px;
     background-color: #e6eaf2;
     display: block;
@@ -26,17 +36,11 @@ p {
     -webkit-margin-end: 0px;
 }
 
-/* i {
-    background-color: cornflowerblue;
-    margin-right: 5px;
-    padding-right: 3px;
-    padding-left: 3px;
-} */
 .tags {
     list-style: none;
     margin: 0;
     overflow: hidden; 
-    padding: 0;
+    padding-left: 15px;
   }
   
   .tags li {

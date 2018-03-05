@@ -74,100 +74,104 @@ adRoutes.get("/show/:id", (req, res, next) => {
 
 //Complete ad list
 adRoutes.get("/list", (req, res) => {
-  Ad.find().exec((err, adList) => {
-    res.status(200).json("ads/adlist");
-    });
-  });
+  Ad.find()
+  .then( adList => {
+    res.status(200).json(adList);
+    })
+    .catch( err =>  {
+      res.status(400).json({ message: "Hemos tenido un error" });
+  })
+});
 
 
 // AHORA MISMO VOY POR AQUI
 
 
 
-adRoutes.post("/list", (req, res) => {
-  const {city, styles} = req.body;
-  if (styles === "Cualquiera")  {
-    Ad.find({ city: city }).exec((err, list) => {
-      res.render("ad/list", { list: list, city: City, styles: Types });
-    });
-  }
-  else if (city == "Cualquiera") {
-    Ad.find({ styles: styles}).exec((err, list) => {
-        res.render("ad/list", { list: list, city: City, styles: Types });
-      });
-  }  
-  else  {
-    Ad.find({ cities: cities, styles: styles}).exec((err, list) => {
-        res.render("ad/list", { list: list, city: City, styles: Types });
-      });
-  }  
-});
+// adRoutes.post("/list", (req, res) => {
+//   const {city, styles} = req.body;
+//   if (styles === "Cualquiera")  {
+//     Ad.find({ city: city }).exec((err, list) => {
+//       res.render("ad/list", { list: list, city: City, styles: Types });
+//     });
+//   }
+//   else if (city == "Cualquiera") {
+//     Ad.find({ styles: styles}).exec((err, list) => {
+//         res.render("ad/list", { list: list, city: City, styles: Types });
+//       });
+//   }  
+//   else  {
+//     Ad.find({ cities: cities, styles: styles}).exec((err, list) => {
+//         res.render("ad/list", { list: list, city: City, styles: Types });
+//       });
+//   }  
+// });
 
 
 
 //Show the user's ads
-adRoutes.get("/my-ads", (req, res) => {
-  Ad.find({creator_id: res.locals.user._id})
-    .then(respuesta => {
-      res.render('ad/my-ads', {list: respuesta})
-    })
-    .catch(error => {
-      console.log(error)
-    });
-  });
+// adRoutes.get("/my-ads", (req, res) => {
+//   Ad.find({creator_id: res.locals.user._id})
+//     .then(respuesta => {
+//       res.render('ad/my-ads', {list: respuesta})
+//     })
+//     .catch(error => {
+//       console.log(error)
+//     })
+//   });
 
 //Edit an ad
-adRoutes.get("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
-  Ad.findById(req.params.id, (err, ad) => {
-    if (err) {
-      return next(err);
-    }
-    if (!ad) {
-      return next(new Error("404"));
-    }
-    return res.render("ad/edit", {
-      ad: ad,
-      city: City,
-      mainInstrument: Instrument,
-      styles: Types
-    });
-  });
-});
+// adRoutes.get("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
+//   Ad.findById(req.params.id, (err, ad) => {
+//     if (err) {
+//       return next(err);
+//     }
+//     if (!ad) {
+//       return next(new Error("404"));
+//     }
+//     return res.render("ad/edit", {
+//       ad: ad,
+//       city: City,
+//       mainInstrument: Instrument,
+//       styles: Types
+//     });
+//   });
+// });
 
-adRoutes.post("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
-  const updates = ({
-    title,
-    types,
-    description,
-    styles,
-    mainInstrument,
-    audio,
-    video,
-    city
-  } = req.body);
+// adRoutes.post("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
+//   const updates = ({
+//     title,
+//     types,
+//     description,
+//     styles,
+//     mainInstrument,
+//     audio,
+//     video,
+//     city
+//   } = req.body);
 
-  Ad.findByIdAndUpdate(id, updates, { new: true }, (err, ad) => {
-    if (err) {
-        return res.status(400).json({ message: 'Hemos tenido un error' });
-      }
-    if (!ad) {
-      return next(new Error("Error al editar, el anuncio no existe"));
-    }
-    req.ad = ad;
-    return res.status(200).json(ad);
-  });
-});
+//   Ad.findByIdAndUpdate(id, updates, { new: true }, (err, ad) => {
+//     if (err) {
+//         return res.status(400).json({ message: 'Hemos tenido un error' });
+//       }
+//     if (!ad) {
+//       return next(new Error("Error al editar, el anuncio no existe"));
+//     }
+//     req.ad = ad;
+//     return res.status(200).json(ad);
+//   });
+// });
 
-//Delete an ad
-adRoutes.get("/:id/delete", (req, res) => {
-  Ad.findByIdAndRemove(req.user._id, function(err, user) {
-    if (err) {
-      return res.status(400).json({ message: "Hemos tenido un error" });
-    } else {
-      res.status(200).json({ message: "Usuario eliminado con éxito" });
-    }
-  });
-});
+// //Delete an ad
+// adRoutes.get("/:id/delete", (req, res) => {
+//   Ad.findByIdAndRemove(req.user._id, function(err, user) {
+//     if (err) {
+//       return res.status(400).json({ message: "Hemos tenido un error" });
+//     } else {
+//       res.status(200).json({ message: "Usuario eliminado con éxito" });
+//     }
+//   });
+// });
 
 
 module.exports = adRoutes;

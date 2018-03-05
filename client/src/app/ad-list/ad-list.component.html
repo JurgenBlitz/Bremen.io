@@ -1,8 +1,11 @@
 <div class="parent">
-  <div class="ad-list" *ngFor="let a of adList">
-      <h3> {{ ad.title }} </h3>
-      <p> {{ ad.category }} </p>
-      <p> {{ ad.styles }} </p>
-      <a [routerLink]="['ad', ad._id]"> Detalles </a>
+  <div class="ad-list" *ngFor="let ad of adList">
+      <h4> {{ ad.title }} </h4>
+      <ul class="tags">
+        <li><a href="#" class="tag"> {{ ad.category }} </a></li>
+        <li><a href="#" class="tag"> {{ ad.city }} </a></li>
+        <li><a href="#" class="tag"> {{ ad.styles }} </a></li>
+    </ul>
+      <button [routerLink]="['/show', ad._id]"> Detalles </button>
   </div>
 </div>

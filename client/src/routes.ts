@@ -19,5 +19,5 @@ export const routes: Routes = [
     { path: 'edit-profile/:id', component: ProfileEditComponent},
     { path: 'ads/new', component: CreateAdComponent},
     { path: 'show/:id', component: ShowAdComponent},
-    { path: 'adlist', component: AdListComponent }
+    { path: 'list', component: AdListComponent }
 ];
