@@ -21,11 +21,7 @@
           <button routerLink="/signup">Registrarme</button>
         </div>
         <!-- <p *ngIf="error" class="error"> {{ error }} </p> -->
-        
-        
-        
-        
-        
+      
         <div *ngIf="session.getUser()">
           <pre> {{ session.getUser() | json }} </pre>
           <button (click)="logout()"> Cerrar sesión </button>

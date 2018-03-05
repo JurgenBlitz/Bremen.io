@@ -1,24 +1,31 @@
 <button class="out" (click)="logout()"> Cerrar sesión </button>
 <button class="create" routerLink="/ad/new"> Crear anuncio nuevo</button>
-<button class="create" routerLink="/ad/new"> Editar este anuncio</button>
-<button class="back" [routerLink]=""> Mi perfil</button>
+<div *ngIf='session.getUser()'>
+    <button class="back" [routerLink]=""> Mi perfil</button> 
+</div>
+
+
 <button routerLink="/list">Volver al listado de anuncios</button>
 <!-- ['/profile', user._id] -->
 
 <div class="parent">
-<div class="single-ad" name="ad">
-    <!-- <strong> {{ad?.imgUrl}} </strong> -->
-    <div class="heading">
-        <h4> {{ad?.title}} </h4>
-        <small> Publicado por {{user?.username}} el {{ad?.created_at}} </small>
+    <div class="single-ad" name="ad">
+        <!-- <strong> {{ad?.imgUrl}} </strong> -->
+        <div class="heading">
+            <h4> {{ad?.title}} </h4>
+            <small> Publicado por {{user?.username}} el {{ad?.created_at}} </small>
+        </div>
+        <p> {{ad?.description}} </p>
+        <ul class="tags">
+            <li><a href="#" class="tag"> {{ad?.city}}</a></li>
+            <li><a href="#" class="tag"> {{ad?.instrument}}</a></li>
+            <li><a href="#" class="tag"> {{ad?.styles}}</a></li>
+        </ul>
+
+            <button class="back" routerLink="/profile"> Enviar mensaje</button>
+ 
+    <div *ngIf='session.getUser()'>
+        <button class="create" routerLink="/ad/new"> Editar este anuncio</button>
     </div>
-    <p> {{ad?.description}} </p>
-    <ul class="tags">
-        <li><a href="#" class="tag"> {{ad?.city}}</a></li>
-        <li><a href="#" class="tag"> {{ad?.instrument}}</a></li>
-        <li><a href="#" class="tag"> {{ad?.styles}}</a></li>
-    </ul>
-    
-    <button class="back" routerLink="/profile"> Enviar mensaje</button>
-</div>
+    </div>
 </div>

@@ -16,7 +16,10 @@ export class ShowAdComponent implements OnInit {
   constructor (public session: SessionService, 
     private adService:AdService, private router: Router, private route: ActivatedRoute) { }
 
+
   ngOnInit() {
+    console.log('me llega este user')
+    console.log(this.session.getUser())
     this.route.params.subscribe(params => {
       this.adService.show(params['id']).subscribe(ad => {
         console.log(ad)
@@ -26,6 +29,13 @@ export class ShowAdComponent implements OnInit {
   }
 
   backToProfile() {
+  }
+
+  logout() {
+    this.session
+      .logout()
+      .catch(e => (this.error = e))
+      .subscribe();
   }
   
 }
