@@ -8,7 +8,8 @@ const firstAds= require('../../models/Ad');
 const Instrument = require('../../models/InstrumentsEnum');
 const Experience = require('../../models/ExpEnum');
 const City= require('../../models/CitiesEnum');
-const dbURL= process.env.DBURL;
+const dbURL= process.env.MONGODB_URI;
+
 console.log(dbURL)
 
 mongoose.connect(dbURL)
