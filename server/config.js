@@ -1,4 +1,4 @@
 require('dotenv').config();
 module.exports = {
-    dbURL: process.env.DBURL
+    dbURL: mongoose.connect(process.env.MONGODB_URI),
 }
