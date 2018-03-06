@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../../services/session.service'; //necesario?
+import { SessionService } from '../../services/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdService } from '../../services/ad.service';
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -12,14 +13,18 @@ import { AdService } from '../../services/ad.service';
 export class ShowAdComponent implements OnInit {
 
   ad
+  user
   error:string;
   constructor (public session: SessionService, 
-    private adService:AdService, private router: Router, private route: ActivatedRoute) { }
+    private userService: UserService,
+    private adService:AdService, private router: Router, private route: ActivatedRoute) {
+      this.user = this.session.getUser();
+      this.session.getUserEvent()
+        .subscribe(user => this.user = user);
+     }
 
 
   ngOnInit() {
-    console.log('me llega este user')
-    console.log(this.session.getUser())
     this.route.params.subscribe(params => {
       this.adService.show(params['id']).subscribe(ad => {
         console.log(ad)

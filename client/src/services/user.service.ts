@@ -30,6 +30,9 @@ export class UserService {
     return Observable.throw(e.json().message);
   }
 
+  getUser(){
+    return this.user;
+  }
 
   fillProfile(user, userId) {
     console.log(user);

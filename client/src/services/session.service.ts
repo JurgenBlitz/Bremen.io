@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Rx';
+
 
 interface User {
   email:string,
@@ -16,18 +17,24 @@ export class SessionService {
   BASEURL:string = "http://localhost:3000"
   options:object = {withCredentials:true};
   constructor(private http: Http) {
-    // this.isLoggedIn().subscribe();
+    this.isLoggedIn().subscribe();
   }
 
   private user:User;
+  private userEvent:EventEmitter<any> = new EventEmitter;
 
   getUser(){
     return this.user;
+  }
+
+  getUserEvent() {
+    return this.userEvent;
   }
   private configureUser(set=false){
     return (user) => {
       if(set){
         this.user = user;
+        this.userEvent.emit(user);
         console.log(`Setting user, welcome ${this.user.email}`)
       }else{
         console.log(`Hasta pronto ${this.user.email}`)

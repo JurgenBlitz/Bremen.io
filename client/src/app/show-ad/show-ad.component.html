@@ -1,12 +1,11 @@
 <button class="out" (click)="logout()"> Cerrar sesión </button>
 <button class="create" routerLink="/ad/new"> Crear anuncio nuevo</button>
 <div *ngIf='session.getUser()'>
-    <button class="back" [routerLink]=""> Mi perfil</button> 
+    <button class="back" [routerLink]="['/profile', user._id]"> Mi perfil</button> 
 </div>
 
-
 <button routerLink="/list">Volver al listado de anuncios</button>
-<!-- ['/profile', user._id] -->
+
 
 <div class="parent">
     <div class="single-ad" name="ad">
@@ -22,10 +21,12 @@
             <li><a href="#" class="tag"> {{ad?.styles}}</a></li>
         </ul>
 
+        <div *ngIf='!session.getUser()'>
             <button class="back" routerLink="/profile"> Enviar mensaje</button>
+        </div>
  
     <div *ngIf='session.getUser()'>
         <button class="create" routerLink="/ad/new"> Editar este anuncio</button>
     </div>
-    </div>
+
 </div>

@@ -2,6 +2,7 @@
   <!-- <a class="btn btn-primary" href="/">Ir a inicio</a> -->
 
     <button class="out" (click)="logout()"> Cerrar sesión </button>
+    <button routerLink="/list">Anuncios publicados</button>
     <button class="create" routerLink="/ads/new">Crear anuncio</button>
     <button class="edit" routerLink="/ads/new">Editar datos (botón de prueba)</button>
     <button class="onlymine" routerLink="/ad/my-ads">Mis anuncios</button>
@@ -26,3 +27,5 @@
   <a class="btn btn-primary" href="/ad/my-ads">Mis anuncios</a>
 <a class="btn btn-primary" href="/users/delete">Eliminar mi perfil</a> -->
 
+
+*ngIf="user"
