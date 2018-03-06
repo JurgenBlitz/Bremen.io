@@ -12,6 +12,8 @@ const cors = require('cors');
 const auth = require('./routes/auth');
 const userRoutes = require('./routes/users');
 const adRoutes = require('./routes/ads');
+const messageRoutes = require('./routes/messages');
+
 const dotenv = require('dotenv').load();
 
 const app = express();
@@ -63,6 +65,7 @@ console.log(Ad.modelName);
 app.use('/api/auth', auth);
 app.use('/api/users', userRoutes);
 app.use('/api/ads', adRoutes);
+app.use('/api/messages', messageRoutes);
 
 app.use(function(req, res) {
   res.sendfile(__dirname + '/public/index.html');
