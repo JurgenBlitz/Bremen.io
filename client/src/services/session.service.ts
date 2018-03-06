@@ -21,7 +21,7 @@ export class SessionService {
   }
 
   private user:User;
-  private userEvent:EventEmitter<any> = new EventEmitter;
+  private userEvent:EventEmitter<any> = new EventEmitter();
 
   getUser(){
     return this.user;
