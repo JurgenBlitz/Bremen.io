@@ -16,7 +16,10 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) {      this.user = this.session.getUser();
+    this.session.getUserEvent()
+      .subscribe(user => this.user = user);
+    }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
