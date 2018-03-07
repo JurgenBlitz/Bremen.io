@@ -1,0 +1,9 @@
+<div class="container">
+
+        <div *ngIf='session.getUser()'>
+                <button class="back" [routerLink]="['/profile', user._id]"> Mi perfil</button> 
+            </div>
+            
+<h3>Bandeja de entrada</h3>
+<h4>Todavía no tienes mensajes</h4>
+</div>

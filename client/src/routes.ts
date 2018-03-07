@@ -9,6 +9,7 @@ import { CreateAdComponent } from './app/create-ad/create-ad.component';
 import { ShowAdComponent } from './app/show-ad/show-ad.component';
 import { ProfileEditComponent } from './app/profile-edit/profile-edit.component';
 import { AdListComponent } from './app/ad-list/ad-list.component';
+import { InboxComponent } from './app/inbox/inbox.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -19,5 +20,6 @@ export const routes: Routes = [
     { path: 'edit-profile/:id', component: ProfileEditComponent},
     { path: 'ads/new', component: CreateAdComponent},
     { path: 'show/:id', component: ShowAdComponent},
-    { path: 'list', component: AdListComponent }
+    { path: 'list', component: AdListComponent },
+    { path: 'inbox', component: InboxComponent }
 ];

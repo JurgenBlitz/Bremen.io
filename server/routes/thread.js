@@ -37,10 +37,10 @@ threadRoutes.get('/new/:postId', ensureLoggedIn('/login'), (req, res) => {
 })
 
 threadRoutes.post('/new/:postId', ensureLoggedIn('/login'),  (req, res, next) => {
-const newReply = new Reply({
+const newReply = {
   content: req.body.content,
   authorId: req.user._id,
-})
+}
 
 Thread.findByIdAndUpdate(req.params.threadId, {$push: { 'replies': newReply }})
   .then(res.redirect('/'))
