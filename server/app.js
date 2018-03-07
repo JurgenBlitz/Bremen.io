@@ -12,7 +12,7 @@ const cors = require('cors');
 const auth = require('./routes/auth');
 const userRoutes = require('./routes/users');
 const adRoutes = require('./routes/ads');
-const messageRoutes = require('./routes/messages');
+const threadRoutes = require('./routes/thread');
 
 const dotenv = require('dotenv').load();
 
@@ -59,13 +59,12 @@ require('./passport')(app)
 
 const User = require('./models/User')
 const Ad = require('./models/Ad')
+const Thread = require('./models/Thread')
 
-console.log(User.modelName);
-console.log(Ad.modelName);
 app.use('/api/auth', auth);
 app.use('/api/users', userRoutes);
 app.use('/api/ads', adRoutes);
-app.use('/api/messages', messageRoutes);
+app.use('/api/thread', threadRoutes);
 
 app.use(function(req, res) {
   res.sendfile(__dirname + '/public/index.html');

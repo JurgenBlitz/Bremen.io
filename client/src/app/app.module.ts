@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { AgmCoreModule } from '@agm/core';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { MessageComponent } from './message/message.component';
+import { ThreadComponent } from './thread/thread.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
@@ -31,7 +31,7 @@ import { AdService } from '../services/ad.service';
   declarations: [
     AppComponent,
     LoginFormComponent,
-    MessageComponent,
+    ThreadComponent,
     SignupFormComponent,
     ProfileComponent,
     EditUserComponent,
@@ -56,4 +56,5 @@ import { AdService } from '../services/ad.service';
   providers: [SessionService, MessageService, UserService, AdService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

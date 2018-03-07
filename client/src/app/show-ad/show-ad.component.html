@@ -21,8 +21,8 @@
             <li><a href="#" class="tag"> {{ad?.styles}}</a></li>
         </ul>
 
-        <div *ngIf='!session.getUser()'>
-            <button class="back" routerLink="/profile"> Enviar mensaje</button>
+        <div *ngIf='!session.getUser() && creatorId != user._id '>
+            <button class="thread" routerLink="/thread"> Enviar mensaje</button>
         </div>
  
     <div *ngIf='session.getUser()'>

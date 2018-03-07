@@ -49,12 +49,14 @@ userRoutes.post("/:id/edit", ensureLoggedIn("/login"), (req, res, next) => {
   });
 });
 
+//VOY POR AQUI
+
 //edit the profile after signup
 userRoutes.get("/:id/edit", ensureLoggedIn('/login'), (req, res, next) => {
   User.findById(req.user._id, (err, user) => {
     if (err) { return next(err) }
     if (!user) { return next(new Error("404")) }
-  return res.render("users/edit", {city: City, mainInstrument: Instrument, otherInstrument: Instrument, experience: Experience});
+    return res.status(200).json(user);
   });
 }); 
 

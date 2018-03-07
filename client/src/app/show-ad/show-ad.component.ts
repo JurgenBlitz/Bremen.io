@@ -3,6 +3,7 @@ import { SessionService } from '../../services/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdService } from '../../services/ad.service';
 import { UserService } from '../../services/user.service';
+import { MessageService } from '../../services/message.service' //necesario?
 
 
 @Component({
@@ -14,6 +15,7 @@ export class ShowAdComponent implements OnInit {
 
   ad
   user
+  creatorId
   error:string;
   constructor (public session: SessionService, 
     private userService: UserService,
@@ -29,12 +31,14 @@ export class ShowAdComponent implements OnInit {
       this.adService.show(params['id']).subscribe(ad => {
         console.log(ad)
         this.ad = ad;
+        this.creatorId = ad.creator_id
       })
      })
   }
 
-  backToProfile() {
-  }
+  startThread() {
+
+}
 
   logout() {
     this.session
