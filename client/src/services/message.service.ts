@@ -14,7 +14,6 @@ interface Thread {
 }
 
 
-
 @Injectable()
 export class MessageService {
     BASEURL:string = environment.BASEURL;
@@ -40,5 +39,11 @@ export class MessageService {
     sendMessage(){
         // return this.http.post(`${this.BASEURL}/api/thread/new`, this.options)
 
+    }
+
+    getMessages(userId) {
+        return this.http.get(`${this.BASEURL}/api/users/${userId}/inbox`, this.options)
+        .map((res) => res.json())
+        .catch(this.handleError); 
     }
 }

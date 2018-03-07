@@ -10,6 +10,7 @@ import { ShowAdComponent } from './app/show-ad/show-ad.component';
 import { ProfileEditComponent } from './app/profile-edit/profile-edit.component';
 import { AdListComponent } from './app/ad-list/ad-list.component';
 import { InboxComponent } from './app/inbox/inbox.component';
+import { ThreadComponent } from './app/thread/thread.component';
 
 export const routes: Routes = [
     { path: 'home', component: HomeComponent},
@@ -21,5 +22,6 @@ export const routes: Routes = [
     { path: 'ads/new', component: CreateAdComponent},
     { path: 'show/:id', component: ShowAdComponent},
     { path: 'list', component: AdListComponent },
-    { path: 'inbox', component: InboxComponent }
+    { path: 'inbox/:id', component: InboxComponent },
+    { path: 'threads/new', component: ThreadComponent }
 ];

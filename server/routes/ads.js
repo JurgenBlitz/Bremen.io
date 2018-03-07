@@ -67,7 +67,7 @@ adRoutes.post("/new", [ensureLoggedIn("/auth/login")], (req, res, next) => {
 //Show newly created ad, to edit or delete 
 adRoutes.get("/show/:id", (req, res, next) => {
   Ad.findById(req.params.id)
-    .populate("creator_id")
+    // .populate("creator_id")
     .then(ad => res.status(200).json(ad))
     .catch(err => next(err));
 });

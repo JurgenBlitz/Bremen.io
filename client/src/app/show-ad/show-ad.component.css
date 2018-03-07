@@ -3,7 +3,9 @@
   width: 100% auto;
   background-color: darkslategray;
 }
-
+.options {
+  display: inline-flex;
+}
 .single-ad {
     margin-top: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;

@@ -10,7 +10,9 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class InboxComponent implements OnInit {
   user;
+  messageList: Array<any>;
   error: string;
+
   constructor(
     public session: SessionService,
     private userService: UserService,
@@ -22,6 +24,11 @@ export class InboxComponent implements OnInit {
     }
 
   ngOnInit() {
+  //   this.messageService.getMessages()
+  //   .map((messageList) => {
+  //    this.messageList = messageList;
+  //  })
+  //  .subscribe()
   }
 
 }
