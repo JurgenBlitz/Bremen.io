@@ -27,8 +27,6 @@ export class MessageService {
         console.log(err);
         return Observable.throw(err.json().message);
       }
-
-  
     
     startThread() {
         return this.http.get(`${this.BASEURL}/api/threads/new`, this.options)
@@ -36,10 +34,9 @@ export class MessageService {
         .catch(this.handleError); 
     }
 
-
     // OPÍ, OPÁ. CADA DÍA YO TE QUIERO MÁH.
-    sendMessage(){
-        return this.http.post(`${this.BASEURL}/api/threads/new`, this.options)
+    sendMessage(threadId){
+        return this.http.post(`${this.BASEURL}/api/threads/${threadId}`, this.options)
         .map(res => res.json())
         .catch(this.handleError); 
     }

@@ -1,16 +1,17 @@
 <div class="chat">
-<p>LOOK AT MY HORSE. MY HORSE IS AMAZING.</p>
+  <p>LOOK AT MY HORSE. MY HORSE IS AMAZING.</p>
   <div class="conversations">
 
     <div class="message" *ngFor="let m of messages">
 
-
+      <p>{{reply.authorId}}</p>
+      <p>{{reply.content}}</p>
 
     </div>
   </div>
-  
+
   <div class="sender">
     <input type="text" [(ngModel)]="toSend" />
-    <button (click)="sendMessage()">Enviar</button>
+    <button (click)="save()">Enviar</button>
   </div>
 </div>

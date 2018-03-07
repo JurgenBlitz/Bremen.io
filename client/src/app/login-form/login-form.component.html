@@ -3,7 +3,7 @@
         <div class="registry">
           <div class="boxes">
             <label> Usuario: </label>
-            <input class="validate[required,custom[onlyLetter],length[6,100]] feedback-input" id="name" type="text" [(ngModel)]="username"
+            <input class="form-control" id="name" type="text" [(ngModel)]="username"
               #newUser="ngModel" name="username" required minlength="6" />
         
             <label> Contraseña: </label>
@@ -17,8 +17,7 @@
         </form>
 
         <div class="login">
-          <p>¿No tienes cuenta?</p>
-          <button routerLink="/signup">Registrarme</button>
+          <p>¿No tienes cuenta?</p><button routerLink="/signup">Registrarme</button>
         </div>
         <!-- <p *ngIf="error" class="error"> {{ error }} </p> -->
       

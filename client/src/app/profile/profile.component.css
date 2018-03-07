@@ -2,6 +2,21 @@ h2 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.parent {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100% auto;
+    background-color: darkslategray;
+
+}
+.child {
+    width: 80%;
+    background-color: white;
+    margin-left: 10%;
+    margin-right: 10%;  
+    padding: 10px 10px 10px 10px;
+    border-bottom: 2px darkslategray solid;
+}
+
 .profile {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #1d1e1e;
@@ -27,7 +42,9 @@ button {
     margin-top: 20px;
     margin-bottom: 50px;
 }
-
+.control-pannel {
+    margin-top: 50px;
+}
 .user-only {
 display: inline-flex;
 }

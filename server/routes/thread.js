@@ -43,9 +43,8 @@ const newReply = {
 }
 
 Thread.findByIdAndUpdate(req.params.threadId, {$push: { 'replies': newReply }})
-  .then(res.redirect('/'))
-  .catch(err => console.log(err))
-
+.then(thread => res.status(200).json({message:"Mensaje enviado" }))
+.catch(err => console.log(err))
 })
 
 

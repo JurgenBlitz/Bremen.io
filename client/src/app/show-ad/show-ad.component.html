@@ -22,7 +22,7 @@
             <li><a href="#" class="tag"> {{ad?.instrument}}</a></li>
             <li><a href="#" class="tag"> {{ad?.styles}}</a></li>
         </ul>
-
+<div class="user-only">
         <div *ngIf='user && ad?.creator_id != user._id '>
             <button class="thread" routerLink="/threads/new"> Enviar mensaje</button>
         </div>
@@ -30,5 +30,5 @@
     <div *ngIf='session.getUser()'>
         <button class="create" routerLink="/ad/new"> Editar este anuncio</button>
     </div>
-
+</div>
 </div>

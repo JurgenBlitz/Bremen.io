@@ -1,38 +1,41 @@
-
-  <!-- <a class="btn btn-primary" href="/">Ir a inicio</a> -->
-
+<!-- <a class="btn btn-primary" href="/">Ir a inicio</a> -->
+<div class="parent">
   <div class="control-pannel">
     <button routerLink="/list">Anuncios publicados</button>
     <button class="create" routerLink="/ads/new">Crear anuncio</button>
     <button class="out" (click)="logout()">Cerrar sesión</button>
   </div>
 
+  <div class="child">
   <h2>Tu perfil</h2>
 
-  <div class="profile"  name="user">
+  <div class="profile" name="user">
 
-  <!-- <strong> {{user?.imgUrl}} </strong> -->
-  <h4> {{user?.username}} </h4>
-  <h4> {{user?.city}} </h4>
-  <h4> {{user?.description}} </h4>
-  <h4> {{user?.instrument}} <i> {{user?.experience}} </i></h4>
-  <h4> {{user?.otherInstrument}} </h4><br>
+    <!-- <strong> {{user?.imgUrl}} </strong> -->
+    <h4> {{user?.username}} </h4>
+    <h4> {{user?.city}} </h4>
+    <h4> {{user?.description}} </h4>
+    <h4> {{user?.instrument}}
+      <i> {{user?.experience}} </i>
+    </h4>
+    <h4> {{user?.otherInstrument}} </h4>
+    <br>
   </div>
 
   <div class="user-only">
-  <div *ngIf='session.getUser()'>
-    <button class="back" [routerLink]="['/profile', user._id]">Editar mis datos(TEST)</button>
+    <div *ngIf='session.getUser()'>
+      <button class="back" [routerLink]="['/profile', user._id]">Editar mis datos(TEST)</button>
+    </div>
+
+    <div *ngIf='session.getUser()'>
+      <button class="myads" [routerLink]="['/ad/my-ads']"> Mis anuncios </button>
+    </div>
+
+    <div *ngIf='session.getUser()'>
+      <button class="inbox" [routerLink]="['/inbox', user._id]"> Mis mensajes </button>
+    </div>
   </div>
 
-  <div *ngIf='session.getUser()'>
-    <button class="myads" [routerLink]="['/ad/my-ads']"> Mis anuncios </button> 
-</div>
-
-<div *ngIf='session.getUser()'>
-    <button class="inbox" [routerLink]="['/inbox', user._id]"> Mis mensajes </button> 
+  <a class="btn btn-primary" href="/users/delete">Eliminar mi perfil (NO TOCAR AUN)</a> -->
 </div>
 </div>
-
-<a class="btn btn-primary" href="/users/delete">Eliminar mi perfil (NO TOCAR AUN)</a> -->
-
-

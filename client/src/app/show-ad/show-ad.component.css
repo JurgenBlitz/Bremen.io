@@ -1,6 +1,7 @@
 .parent {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 100% auto;
+  margin-top: 60px;
   background-color: darkslategray;
 }
 .options {
@@ -20,9 +21,18 @@
     padding-left: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 743px;
+    width: 60%px;
     height: 80px;
     color: white;
+}
+
+.user-only {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
+button {
+margin: 10px 20px 10px 20px;
 }
 
 p {

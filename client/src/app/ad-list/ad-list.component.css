@@ -1,6 +1,7 @@
 .parent {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100% auto;
+    margin-top: 60px;
     background-color: darkslategray;
 
 }

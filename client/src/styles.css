@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+nav{
+    width: 100%;
+    position: fixed!important;
+    z-index: 9;
+    background: #23272b!important;
+    height: 70px;
+}
