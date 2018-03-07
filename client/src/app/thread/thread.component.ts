@@ -13,8 +13,11 @@ export class ThreadComponent implements OnInit {
   constructor(public chat:MessageService) { }
 
   ngOnInit() {
-  }
 
+  }
+ sendMessage() {
+   
+ }
 
 
 }

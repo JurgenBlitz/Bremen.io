@@ -35,7 +35,7 @@ export class ShowAdComponent implements OnInit {
   }
 
   startThread() {
-
+//ensureLogin??
 }
 
   logout() {

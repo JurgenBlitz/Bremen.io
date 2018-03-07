@@ -32,8 +32,8 @@ threadRoutes.post('/new', ensureLoggedIn('/login'), (req, res, next) => {
     .catch(err => console.log(err))
 })
 
-threadRoutes.get('/new/:postId', ensureLoggedIn('/login'), (req, res) => {
-  res.render('replies/new', { message: `New comment`, postId: req.params.postId})
+threadRoutes.get('/new/:repliesId', ensureLoggedIn('/login'), (req, res) => {
+  res.render('replies/new', { message: `New comment`, repliesId: req.params.repliesId})
 })
 
 threadRoutes.post('/new/:postId', ensureLoggedIn('/login'),  (req, res, next) => {

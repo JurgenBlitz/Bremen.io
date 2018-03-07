@@ -31,14 +31,17 @@ export class MessageService {
   
     
     startThread() {
-        return this.http.get(`${this.BASEURL}/api/thread/new`, this.options)
+        return this.http.get(`${this.BASEURL}/api/threads/new`, this.options)
         .map(res => res.json())
         .catch(this.handleError); 
     }
 
-    sendMessage(){
-        // return this.http.post(`${this.BASEURL}/api/thread/new`, this.options)
 
+    // OPÍ, OPÁ. CADA DÍA YO TE QUIERO MÁH.
+    sendMessage(){
+        return this.http.post(`${this.BASEURL}/api/threads/new`, this.options)
+        .map(res => res.json())
+        .catch(this.handleError); 
     }
 
     getMessages(userId) {
