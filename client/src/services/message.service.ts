@@ -9,7 +9,7 @@ interface Thread {
     title: string,
     creator_id:number,
     target_id:number,
-    replies: Array<Object>  ,
+    replies: Array<Object>,
     date:Date
 }
 
@@ -36,7 +36,7 @@ export class MessageService {
 
     // OPÍ, OPÁ. CADA DÍA YO TE QUIERO MÁH.
     sendMessage(threadId){
-        return this.http.post(`${this.BASEURL}/api/threads/${threadId}`, this.options)
+        return this.http.put(`${this.BASEURL}/api/threads/${threadId}`, this.options)
         .map(res => res.json())
         .catch(this.handleError); 
     }

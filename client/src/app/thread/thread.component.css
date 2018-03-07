@@ -6,3 +6,10 @@ body {
 .chat {
 margin: 60px;
 }
+
+input {
+    width: 500px;
+    height: 150px;
+    border: 2px lightblue solid;
+    border-radius: 5px;
+}

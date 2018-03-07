@@ -13,7 +13,7 @@ import { InboxComponent } from './app/inbox/inbox.component';
 import { ThreadComponent } from './app/thread/thread.component';
 
 export const routes: Routes = [
-    { path: 'home', component: HomeComponent},
+    { path: '', component: AppComponent},
     { path: 'signup', component: SignupFormComponent },
     { path: 'login', component: LoginFormComponent },
     { path: 'profile/:id', component: ProfileComponent},

@@ -14,6 +14,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { CreateAdComponent } from './create-ad/create-ad.component';
 import { AdListComponent } from './ad-list/ad-list.component';
 import { ShowAdComponent } from './show-ad/show-ad.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
 import { InboxComponent } from './inbox/inbox.component';
@@ -25,6 +26,7 @@ import { SessionService } from '../services/session.service';
 import { MessageService } from '../services/message.service';
 import { UserService } from '../services/user.service';
 import { AdService } from '../services/ad.service';
+
 
 
 
@@ -43,7 +45,8 @@ import { AdService } from '../services/ad.service';
     ShowAdComponent,
     ProfileEditComponent,
     MapComponent,
-    InboxComponent
+    InboxComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
