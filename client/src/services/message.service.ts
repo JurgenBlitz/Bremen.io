@@ -29,14 +29,14 @@ export class MessageService {
       }
     
     startThread() {
-        return this.http.get(`${this.BASEURL}/api/threads/new`, this.options)
+        return this.http.get(`${this.BASEURL}/api/thread/new`, this.options)
         .map(res => res.json())
         .catch(this.handleError); 
     }
 
     // OPÍ, OPÁ. CADA DÍA YO TE QUIERO MÁH.
-    sendMessage(threadId){
-        return this.http.put(`${this.BASEURL}/api/threads/${threadId}`, this.options)
+    sendMessage(threadId, content){
+        return this.http.post(`${this.BASEURL}/api/thread/new/${threadId}`, {content}, this.options)
         .map(res => res.json())
         .catch(this.handleError); 
     }

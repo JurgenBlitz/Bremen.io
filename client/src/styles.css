@@ -5,11 +5,13 @@ nav{
     z-index: 9;
     background: #23272b!important;
     height: 70px;
+    padding: 5px;
 }
 .navbar-default .navbar-brand {
     color: white;
     font-size: 20px;
     font-weight: 600;
+    padding-left: 20px;
 }
 
 .nav-link{
@@ -19,6 +21,7 @@ nav{
     letter-spacing: 1.5px;
     color: #fff;
 }
+
 
 .nav-link:hover{
     color: #fff!important;

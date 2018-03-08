@@ -1,11 +1,11 @@
 <div class="chat">
   <p>LOOK AT MY HORSE. MY HORSE IS AMAZING.</p>
-  <form (ngSubmit)="save(myForm)" #myForm="ngForm">
+  <!-- <form (ngSubmit)="save(myForm)" #myForm="ngForm"> -->
+  <form>
+    <div class="message" *ngFor="let r of replies">
 
-    <div class="message" *ngFor="let m of messages">
-
-      <p>{{reply.authorId}}</p>
-      <p>{{reply.content}}</p>
+      <p>{{r.authorId}}</p>
+      <p>{{r.content}}</p>
 
     </div>
   </form>

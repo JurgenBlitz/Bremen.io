@@ -24,6 +24,6 @@ export const routes: Routes = [
     { path: 'show/:id', component: ShowAdComponent},
     { path: 'list', component: AdListComponent },
     { path: 'inbox/:id', component: InboxComponent },
-    { path: 'threads/new', component: ThreadComponent },
+    { path: 'thread/new/:id', component: ThreadComponent },
     { path: 'about', component: AboutComponent }
 ];

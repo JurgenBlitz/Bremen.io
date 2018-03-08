@@ -24,7 +24,7 @@
         </ul>
 <div class="user-only">
         <div *ngIf='user && ad?.creator_id != user._id '>
-            <button class="thread" routerLink="/threads/new"> Enviar mensaje</button>
+            <button class="thread" (click)="startThread()"> Enviar mensaje</button>
         </div>
  
     <div *ngIf='session.getUser()'>
