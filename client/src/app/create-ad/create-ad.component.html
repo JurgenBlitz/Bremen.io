@@ -1,10 +1,12 @@
 <div class="control-pannel">
     <button class="control" routerLink="/list">Anuncios publicados</button>
     <button class="control" routerLink="/ads/new">Crear anuncio</button>
+    <button class="control" [routerLink]="['/ad/my-ads']"> Mis anuncios </button>
     <div *ngIf='session.getUser()'>
-        <button class="control" [routerLink]="['/ad/my-ads']"> Mis anuncios </button>
+        <button class="control" (click)="logout()">Cerrar sesión</button>
       </div>
   </div>
+
 <div class="container">
   <div class="row">
 
@@ -81,16 +83,8 @@
           </select>
         </div>
 
-        <br>
-        <div class="location">
-          <label for="description"><strong>Localización</strong></label>
-          <p>Si ya tienes un local de ensayo, a los usuarios interesados en tu anuncio puedes serle útil saber si les queda cerca.</p>
-          <!-- <input type="text" name="description" [(ngModel)]="description" id="description " maxlength="200" class="info-input" placeholder="Cuenta algo sobre ti"/> -->
-        </div>
-
-
       </div>
-      <button>Publicar anuncio</button>
+      <button class="butt">Publicar anuncio</button>
     </form>
   </div>
 </div>

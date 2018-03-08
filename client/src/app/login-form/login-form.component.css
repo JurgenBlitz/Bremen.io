@@ -41,15 +41,23 @@ button {
     color: white;
     border-radius: 9px;
     height: 30px;
-    margin-top: 20px;
     margin-left: 280px;
 }
 
+.butt {
+    margin-top: 25px;
+}
+
 .login {
-    display: flex;
-    flex-direction: row;
+    display: inline-flex;
     position: fixed;
-    top: 70%;
+    justify-content: center;
+    background-color: #cde3f2;
+    border-radius: 9px;
+    height: 60px;
+    width: 700px;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding-top: 15px;
 }

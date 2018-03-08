@@ -14,7 +14,7 @@ import { ThreadComponent } from './app/thread/thread.component';
 import { AboutComponent } from './app/about/about.component';
 
 export const routes: Routes = [
-    { path: '', component: AppComponent},
+    { path: '', component: HomeComponent},
     { path: 'signup', component: SignupFormComponent },
     { path: 'login', component: LoginFormComponent },
     { path: 'profile/:id', component: ProfileComponent},

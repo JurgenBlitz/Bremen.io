@@ -1,28 +1,28 @@
+<form>
 
-      <form>
+  <div class="registry">
+    <div class="boxes">
+      <label> Usuario: </label>
+      <input class="form-control" id="name" type="text" [(ngModel)]="username" #newUser="ngModel" name="username" required minlength="6"
+      />
 
-        <div class="registry">
-          <div class="boxes">
-            <label> Usuario: </label>
-            <input class="form-control" id="name" type="text" [(ngModel)]="username"
-              #newUser="ngModel" name="username" required minlength="6" />
-        
-            <label> Contraseña: </label>
-            <input type="password" class="form-control" [(ngModel)]="password" name="password" />
-          </div>
-        
-          <div class="butt">
-            <button class="signmeup" (click)="login()"> Entrar en Bremen </button>
-          </div>
-        </div>
-        </form>
-
-        <div class="login">
-          <p>¿No tienes cuenta?</p><button routerLink="/signup">Registrarme</button>
-        </div>
-        <!-- <p *ngIf="error" class="error"> {{ error }} </p> -->
-      
-        <div *ngIf="session.getUser()">
-          <pre> {{ session.getUser() | json }} </pre>
-          <button (click)="logout()"> Cerrar sesión </button>
+      <label> Contraseña: </label>
+      <input type="password" class="form-control" [(ngModel)]="password" name="password" />
     </div>
+
+    <div class="butt">
+      <button class="signmeup" (click)="login()"> Entrar en Bremen </button>
+    </div>
+  </div>
+</form>
+
+<div class="login">
+  <p>¿No tienes cuenta?</p>
+  <button routerLink="/signup">Registrarme</button>
+</div>
+
+
+<div *ngIf="session.getUser()">
+  <pre> {{ session.getUser() | json }} </pre>
+  <button (click)="logout()"> Cerrar sesión </button>
+</div>

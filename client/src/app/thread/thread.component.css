@@ -3,31 +3,43 @@ body {
 
 }
 
+.parent {
+    padding: 40px;
+}
+
 .chat {
 margin: 60px;
 }
 
-input {
-    width: 500px;
+textarea {
+    width: 600px;
     height: 150px;
     border: 2px lightblue solid;
     border-radius: 5px;
+    margin-top: 200px;
+}
+
+.sender {
+    display: inline-grid;
 }
 
 button {
+
     background-color: #3c3c3d;
     display: inline-flex;
     color: white;
     justify-content: center;
-    margin: auto;
+    width: 250px;
+
 }
+
 .control-pannel {
     width: 100%;
     display: inline-flex;
     background-color: #3c3c3d;
     color: white;
     font-size: 16px;
-
+    padding-left: 10%;
 }
 
 .control {
@@ -35,4 +47,4 @@ button {
     height: 50px;
     text-align: center;
     border: none;
-}  
+} 

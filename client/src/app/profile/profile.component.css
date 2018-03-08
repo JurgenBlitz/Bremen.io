@@ -49,15 +49,18 @@ button {
     display: inline-flex;
     color: white;
     justify-content: center;
-    margin: auto;
+    width: 250px;
+
 }
+
+
 .control-pannel {
     width: 100%;
     display: inline-flex;
     background-color: #3c3c3d;
     color: white;
     font-size: 16px;
-
+    padding-left: 10%;
 }
 
 .control {

@@ -9,7 +9,6 @@
 }
 .single-ad {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding-top: 70px;
     height: 400px;
     background-color: #e6eaf2;
     width: 60%;
@@ -98,13 +97,23 @@ p {
     top: 0;
   }
 
-  .control-pannel {
+  button {
+    background-color: #3c3c3d;
+    display: inline-flex;
+    color: white;
+    justify-content: center;
+    width: 250px;
+
+}
+
+
+.control-pannel {
     width: 100%;
     display: inline-flex;
     background-color: #3c3c3d;
     color: white;
     font-size: 16px;
-
+    padding-left: 10%;
 }
 
 .control {
@@ -112,12 +121,4 @@ p {
     height: 50px;
     text-align: center;
     border: none;
-}  
-
-button {
-  background-color: #3c3c3d;
-  display: inline-flex;
-  color: white;
-  justify-content: center;
-  margin: auto;
-}
+}   

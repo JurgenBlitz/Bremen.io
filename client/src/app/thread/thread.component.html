@@ -1,15 +1,16 @@
 
 <div class="control-pannel">
-    <button class="control" routerLink="/list">Anuncios publicados</button>
-    <button class="control" routerLink="/ads/new">Crear anuncio</button>
-    <button class="control" [routerLink]="['/ad/my-ads']"> Mis anuncios </button>
-    <div *ngIf='session.getUser()'>
-        <button class="control" (click)="logout()">Cerrar sesión</button>
+        <button class="control" routerLink="/list">Anuncios publicados</button>
+        <button class="control" routerLink="/ads/new">Crear anuncio</button>
+        <button class="control" [routerLink]="['/ad/my-ads']"> Mis anuncios </button>
+        <div *ngIf='session.getUser()'>
+            <button class="control" (click)="logout()">Cerrar sesión</button>
+          </div>
       </div>
-  </div>
+
 <div class="parent">
 <div class="child">
-  <p>Envía tu mensaje</p>
+  <h4>Envía tu mensaje</h4>
   <form>
     <div class="message" *ngFor="let r of replies">
 
