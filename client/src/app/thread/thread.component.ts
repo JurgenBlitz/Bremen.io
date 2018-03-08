@@ -14,11 +14,14 @@ export class ThreadComponent implements OnInit {
 
   ad
   user
-  thread
+  thread: Array<Object>;
+  reply: Object = {};
   error:string;
+
   constructor (public session: SessionService, 
     private userService: UserService,
     private adService: AdService, 
+    private messageService: MessageService,
     private router: Router, 
     private route: ActivatedRoute) {
       this.user = this.session.getUser();
@@ -27,13 +30,16 @@ export class ThreadComponent implements OnInit {
      }
 
   ngOnInit() {
+    
 
   }
 
- sendMessage(threadId) {
-
-  this.replies.push(this.newReply);
-  this.newReply = {};
+ save(threadId) { // id del hilo o meto *form?
+  this.thread.push(this.reply)
+  .map(thread => {
+    console.log(thread);
+  })
+  .subscribe()
 }
 
 }

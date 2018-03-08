@@ -26,6 +26,7 @@ import { SessionService } from '../services/session.service';
 import { MessageService } from '../services/message.service';
 import { UserService } from '../services/user.service';
 import { AdService } from '../services/ad.service';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -46,7 +47,8 @@ import { AdService } from '../services/ad.service';
     ProfileEditComponent,
     MapComponent,
     InboxComponent,
-    NavbarComponent
+    NavbarComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

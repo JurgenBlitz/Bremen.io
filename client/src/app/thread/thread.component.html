@@ -1,6 +1,6 @@
 <div class="chat">
   <p>LOOK AT MY HORSE. MY HORSE IS AMAZING.</p>
-  <div class="conversations">
+  <form (ngSubmit)="save(myForm)" #myForm="ngForm">
 
     <div class="message" *ngFor="let m of messages">
 
@@ -8,10 +8,10 @@
       <p>{{reply.content}}</p>
 
     </div>
-  </div>
+  </form>
 
   <div class="sender">
-    <input type="text" [(ngModel)]="toSend" />
+    <input type="text" [(ngModel)]="content" />
     <button (click)="save()">Enviar</button>
   </div>
 </div>

@@ -37,12 +37,12 @@ export class CreateAdComponent implements OnInit {
   private adService:AdService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    
   }
 
   save(form){
     this.adService.createAd(form.value)
     .map(ad => {
-      console.log('QQQ')
       console.log(ad);
       this.router.navigate(['/show', ad._id]) 
     })
