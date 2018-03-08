@@ -4,13 +4,20 @@
     background-color: darkslategray;
 
 }
+.child {
+    width: 60%;
+    background-color: white;
+    margin-left: 20%;
+    margin-right: 20%;  
+    padding: 10px 10px 10px 10px;
+    border-bottom: 2px darkslategray solid;
+}
 
 .ad-list {
-    width: 80%;
-    margin-top: 60px;
+
     background-color: white;
     margin-left: 10%;
-    padding: 10px 10px 10px 10px;
+    padding: 60px 10px 10px 10px;
     border-bottom: 2px darkslategray solid;
 }
 
@@ -62,3 +69,26 @@
     right: 0;
     top: 0;
   }
+  .control-pannel {
+    width: 100%;
+    display: inline-flex;
+    background-color: #3c3c3d;
+    color: white;
+    font-size: 16px;
+
+}
+
+.control {
+    margin-top: 70px;
+    height: 50px;
+    text-align: center;
+    border: none;
+}  
+
+button {
+  background-color: #3c3c3d;
+  display: inline-flex;
+  color: white;
+  justify-content: center;
+  margin: auto;
+}

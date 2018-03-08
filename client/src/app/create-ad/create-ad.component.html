@@ -1,3 +1,10 @@
+<div class="control-pannel">
+    <button class="control" routerLink="/list">Anuncios publicados</button>
+    <button class="control" routerLink="/ads/new">Crear anuncio</button>
+    <div *ngIf='session.getUser()'>
+        <button class="control" [routerLink]="['/ad/my-ads']"> Mis anuncios </button>
+      </div>
+  </div>
 <div class="container">
   <div class="row">
 

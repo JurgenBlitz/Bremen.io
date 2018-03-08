@@ -18,6 +18,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
 import { InboxComponent } from './inbox/inbox.component';
+import { BuiltInPipesComponent } from './date-pipe/date-pipe.component';
+import { AboutComponent } from './about/about.component';
 
 import { RouterModule } from '@angular/router'
 import { routes } from '../routes';
@@ -26,10 +28,6 @@ import { SessionService } from '../services/session.service';
 import { MessageService } from '../services/message.service';
 import { UserService } from '../services/user.service';
 import { AdService } from '../services/ad.service';
-import { AboutComponent } from './about/about.component';
-
-
-
 
 
 @NgModule({
@@ -48,7 +46,9 @@ import { AboutComponent } from './about/about.component';
     MapComponent,
     InboxComponent,
     NavbarComponent,
-    AboutComponent
+    AboutComponent,
+    BuiltInPipesComponent
+
   ],
   imports: [
     BrowserModule,

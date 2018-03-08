@@ -1,15 +1,16 @@
 .parent {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: 100% auto;
-  margin-top: 60px;
+  height: 1000px;
   background-color: darkslategray;
 }
 .options {
   display: inline-flex;
 }
 .single-ad {
-    margin-top: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 70px;
+    height: 400px;
     background-color: #e6eaf2;
     width: 60%;
     margin-left: 20%;
@@ -27,10 +28,12 @@
 }
 
 .user-only {
+  padding-top: 40px;
   display: flex;
   flex-direction: row;
   align-content: space-between;
 }
+
 button {
 margin: 10px 20px 10px 20px;
 }
@@ -38,7 +41,7 @@ margin: 10px 20px 10px 20px;
 p {
     padding-left: 15px;  
     padding-top: 10px;
-    width: 743px;
+    width: 60%px;
     height:100px;
     background-color: #e6eaf2;
     display: block;
@@ -94,3 +97,27 @@ p {
     right: 0;
     top: 0;
   }
+
+  .control-pannel {
+    width: 100%;
+    display: inline-flex;
+    background-color: #3c3c3d;
+    color: white;
+    font-size: 16px;
+
+}
+
+.control {
+    margin-top: 70px;
+    height: 50px;
+    text-align: center;
+    border: none;
+}  
+
+button {
+  background-color: #3c3c3d;
+  display: inline-flex;
+  color: white;
+  justify-content: center;
+  margin: auto;
+}

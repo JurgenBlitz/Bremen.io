@@ -1,20 +1,19 @@
-<div class="options">
-    <button class="out" (click)="logout()"> Cerrar sesión </button>
-    <button class="create" routerLink="/ad/new"> Crear anuncio nuevo</button>
-    <div *ngIf='user'>
-        <button class="back" [routerLink]="['/profile', user._id]"> Mi perfil</button>
-    </div>
-</div>
-
-<button routerLink="/list">Volver al listado de anuncios</button>
-
-
+<div class="control-pannel">
+        <button class="control" routerLink="/list">Anuncios publicados</button>
+        <button class="control" routerLink="/ads/new">Crear anuncio</button>
+        <button class="control" [routerLink]="['/ad/my-ads']"> Mis anuncios </button>
+        <div *ngIf='session.getUser()'>
+            <button class="control" (click)="logout()">Cerrar sesión</button>
+          </div>
+      
+      </div>
+        
 <div class="parent">
     <div class="single-ad" name="ad">
         <!-- <strong> {{ad?.imgUrl}} </strong> -->
         <div class="heading">
             <h4> {{ad?.title}} </h4>
-            <small> Publicado por {{user?.username}} el {{ad?.created_at}} </small>
+            <small> Publicado por {{user?.username}} el {{ad?.created_at | date:'dd /MM/ yyyy' }} </small>
         </div>
         <p> {{ad?.description}} </p>
         <ul class="tags">
@@ -32,3 +31,5 @@
     </div>
 </div>
 </div>
+</div>
+<date-pipe></date-pipe>

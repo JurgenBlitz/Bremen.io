@@ -22,7 +22,9 @@ nav{
     color: #fff;
 }
 
-
+body {
+    height: 100% auto;
+}
 .nav-link:hover{
     color: #fff!important;
 }
