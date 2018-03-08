@@ -1,4 +1,5 @@
 <div class="parent">
+    <div class="child">
   <div class="ad-list" *ngFor="let ad of adList">
       <h4> {{ ad.title }} </h4>
       <ul class="tags">
@@ -8,4 +9,5 @@
     </ul>
       <button [routerLink]="['/show', ad._id]"> Detalles </button>
   </div>
+</div>
 </div>

@@ -17,34 +17,55 @@ h2 {
     border-bottom: 2px darkslategray solid;
 }
 
+.spider {
+    border: 4px crimson solid;
+    border-radius: 55px;
+}
+
 .profile {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #1d1e1e;
-    padding-left: 15px;
-    padding-top: 15px;
-    width: 600px;
+    padding: 30px;
+    width: 70%;
     color: white;
 }
-h4 {
-    padding-top: 5px;
+h5 {
+    padding-top: 12px;
     margin: 0px;
 }
 
+span {
+    padding-right: 10px;
+}
+
+p {
+    padding-top: 12px;
+    padding-left: 27px;
+}
+
 button {
-    background-color:#1e417a;
+    background-color: #3c3c3d;
+    display: inline-flex;
     color: white;
-    width: 150px;
-    height: 80px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 9px;
-    height: 30px;
-    margin-top: 20px;
-    margin-bottom: 50px;
+    justify-content: center;
+    margin: auto;
 }
 .control-pannel {
-    margin-top: 50px;
+    width: 100%;
+    display: inline-flex;
+    background-color: #3c3c3d;
+    color: white;
+    font-size: 16px;
+
 }
+
+.control {
+    margin-top: 70px;
+    height: 50px;
+    text-align: center;
+    border: none;
+}   
+
 .user-only {
-display: inline-flex;
+    display: inline-flex;
 }

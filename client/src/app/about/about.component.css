@@ -1,27 +1,40 @@
 .parent {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100% auto;
-    height: 600px;
-    margin-top: 40px;
+    height: 650px;
+    margin-top: 30px;
     background-color: darkslategray;
 
 }
 
 .child {
     width: 80%;
-    height: 500px;
+    height: 650px;
     background-color: white;
     margin-left: 10%;
     padding: 10px 10px 10px 10px;
     border-bottom: 2px darkslategray solid;
 }
 
-.images {
-    padding: 10px 10px 10px 10px;
+.jorge {
+    border: 4px darkslategrey solid;
+    border-radius: 65px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.ihlogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+
 }
 
 p {
-    padding: 2px 42px 2px 42px;
+    padding: 2px 42px 0px 42px;
 }
 
 b {
