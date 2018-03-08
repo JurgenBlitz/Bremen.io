@@ -11,6 +11,7 @@ import { ProfileEditComponent } from './app/profile-edit/profile-edit.component'
 import { AdListComponent } from './app/ad-list/ad-list.component';
 import { InboxComponent } from './app/inbox/inbox.component';
 import { ThreadComponent } from './app/thread/thread.component';
+import { AboutComponent } from './app/about/about.component';
 
 export const routes: Routes = [
     { path: '', component: AppComponent},
@@ -23,5 +24,6 @@ export const routes: Routes = [
     { path: 'show/:id', component: ShowAdComponent},
     { path: 'list', component: AdListComponent },
     { path: 'inbox/:id', component: InboxComponent },
-    { path: 'threads/new', component: ThreadComponent }
+    { path: 'threads/new', component: ThreadComponent },
+    { path: 'about', component: AboutComponent }
 ];
